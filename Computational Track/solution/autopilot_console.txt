@@ -1,0 +1,11 @@
+[2026-09-23 17:46:54] Starting fresh (no prior state found)
+[2026-09-23 17:47:47] autopilot: total n/a -> 67.5 [iter1 seed=174824 budget=17.1s] ghz_star: 6.5; chain_trotter: 4.5; ladder_trotter: 6.5; qaoa_random: 11.5; dense_random: 35.5; vqe_layers: 3.0 (committed)
+[2026-09-23 17:49:02] [iter2] seed=181718 budget=24.4s: total 67.5, no improvement over 67.5
+[2026-09-23 17:50:31] [iter3] seed=533690 budget=29.2s: total 67.5, no improvement over 67.5
+[2026-09-23 17:51:25] [iter4] seed=461276 budget=17.6s: total 68.0, no improvement over 67.5
+[2026-09-23 17:52:39] [iter5] seed=146199 budget=24.0s: total 67.5, no improvement over 67.5
+[2026-09-23 17:53:27] [iter6] seed=919123 budget=15.7s: total 67.5, no improvement over 67.5
+[2026-09-23 17:54:28] [iter7] seed=460150 budget=19.7s: total 67.5, no improvement over 67.5
+[2026-09-23 17:56:08] [iter8] seed=559635 budget=32.8s: total 67.5, no improvement over 67.5
+[2026-09-23 17:57:08] [params] profile 0 (baseline): total=68.0 valid=True
+[2026-09-23 17:58:09] [params] profile 1 {'window': 8, 'decay': 0.85}: total=68.0 valid=True

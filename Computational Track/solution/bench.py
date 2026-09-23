@@ -1,4 +1,4 @@
-"""Score the solver on every benchmark with the official starter-kit scorer.
+"""Scores the solver on every benchmark using the official starter-kit scorer.
 
 Run from the `Computational Track` directory:
     python solution/bench.py                 # default budget per benchmark

@@ -1,4 +1,4 @@
-"""Robustness suite: every output must pass the official validator and never lose to the baseline.
+"""Robustness suite. Every output has to pass the official validator and never lose to baseline.
 
 Run from the `Computational Track` directory:
     python solution/test_robustness.py            # full suite

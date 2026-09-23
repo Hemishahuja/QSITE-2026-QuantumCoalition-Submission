@@ -1,18 +1,18 @@
 """Qubit placement + SWAP routing for the QSITE 2026 Computational Track.
 
-Pipeline:
-1. Zero-SWAP check: subgraph-monomorphism search of the program's interaction graph
-   into the hardware graph. If it embeds, no SWAPs are needed and the score equals the
-   depth lower bound (provably optimal).
-2. Otherwise, a beam search over (mapping, gate index) that scores partial solutions with
-   the exact objective (swaps + 0.5 * depth under ASAP layering), started from several
-   initial placements: lazy placement, zero-SWAP prefix embeddings, simulated annealing,
-   and forward/backward (SABRE-style) refinement. Runs as a portfolio under a time budget
-   and stops early when it reaches the lower bound.
-3. The result is validated with the same rules as the official scorer; the greedy
-   baseline is the fallback.
+Roughly how it works:
+1. Zero-SWAP check: subgraph-monomorphism search of the program's interaction graph into
+   the hardware graph. If it embeds, no SWAPs are needed and the score is just the depth
+   lower bound (provably optimal).
+2. Otherwise, beam search over (mapping, gate index) that scores partial solutions with the
+   exact objective (swaps + 0.5 * depth under ASAP layering). Starts from a handful of
+   initial placements -- lazy placement, zero-SWAP prefix embeddings, simulated annealing --
+   plus forward/backward (SABRE-style) refinement passes. Runs as a portfolio under a time
+   budget and stops early once it hits the lower bound.
+3. Result gets validated with the same rules as the official scorer. Greedy baseline is the
+   fallback if nothing better turns up.
 
-Depends only on networkx and the standard library so it can be pasted into the notebook.
+Only depends on networkx + stdlib so it can be pasted straight into a notebook.
 """
 
 from __future__ import annotations
@@ -922,6 +922,47 @@ def score_routed(routed: list[tuple]) -> float:
     return swaps + 0.5 * depth
 
 
+def cancel_redundant_swaps(routed: list[tuple]) -> list[tuple]:
+    """Remove SWAP(x, y) ... SWAP(x, y) pairs with nothing touching x or y in between --
+    they compose to the identity, so both can be deleted for free (fewer swaps, and often
+    less depth too, since the ops "between" them shift earlier relative to x/y's chain).
+
+    Our beam search never generates this within a single gate's routing (route() doesn't
+    build back-and-forth paths), but different gates get routed against a shared, evolving
+    state, and separate portfolio members (forward pass, backward refinement pass, a fresh
+    random restart, ...) can independently insert swaps that happen to undo each other
+    across gates. This is a pure post-processing cleanup pass, safe to always apply: the
+    caller re-validates with the official rules before accepting any result either way.
+    """
+    ops = list(routed)
+    changed = True
+    while changed:
+        changed = False
+        removed = [False] * len(ops)
+        n = len(ops)
+        for i in range(n):
+            if removed[i] or ops[i][0] != "SWAP":
+                continue
+            x, y = ops[i][1], ops[i][2]
+            for j in range(i + 1, n):
+                if removed[j]:
+                    continue
+                op = ops[j]
+                if op[0] == "1Q":
+                    touches = op[1] in (x, y)
+                else:
+                    touches = op[1] in (x, y) or op[2] in (x, y)
+                if not touches:
+                    continue
+                if op[0] == "SWAP" and {op[1], op[2]} == {x, y}:
+                    removed[i] = removed[j] = True
+                    changed = True
+                break  # first touch of x or y after i, cancelling or not, stop scanning
+        if changed:
+            ops = [op for keep, op in zip((not r for r in removed), ops) if keep]
+    return ops
+
+
 def greedy_baseline(program: list[tuple], graph: nx.Graph) -> tuple[dict, list[tuple]]:
     """Identity placement + shortest-path SWAPs (same idea as the starter baseline)."""
     logicals = sorted({q for op in program for q in op[1:]})
@@ -973,6 +1014,10 @@ class Solver:
         self.t0 = time.perf_counter()
 
     def _offer(self, placement: dict, routed: list[tuple], method: str) -> bool:
+        cleaned = cancel_redundant_swaps(routed)
+        if len(cleaned) != len(routed) and is_valid(self.program, self.graph, placement, cleaned):
+            routed = cleaned
+            method = f"{method} + swap-cancel"
         if not is_valid(self.program, self.graph, placement, routed):
             return False
         score = score_routed(routed)
