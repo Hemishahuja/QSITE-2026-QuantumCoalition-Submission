@@ -209,5 +209,6 @@ marimo/_lsp/
 __marimo__/
 
 # Computational Track autopilot: keep the results cache (autopilot_state.json), drop the
-# noisy running log
+# noisy running log / redirected console output
 Computational Track/solution/autopilot_log.txt
+Computational Track/solution/autopilot_console.txt

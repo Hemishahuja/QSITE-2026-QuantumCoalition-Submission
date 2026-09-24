@@ -26,7 +26,14 @@ from collections import deque
 
 import networkx as nx
 
-DEFAULT_TIME_BUDGET = 10.0
+# This is a wall-clock-timed anytime search: for a fixed seed, fewer completed iterations
+# (e.g. under heavy system load) can only make the result the same or worse, never better,
+# since results only ever ratchet upward in quality (_offer only accepts strict
+# improvements). 10s cut it close under contention in practice (an independent audit
+# measured qaoa_random landing on 12.5 instead of 11.5 on a loaded machine); 20s gives more
+# margin for the escalating-width passes to actually finish. Pass time_budget explicitly if
+# you want to trade off differently.
+DEFAULT_TIME_BUDGET = 20.0
 _INF = 10**6
 
 
