@@ -1,0 +1,2 @@
+Ran 122 cases.
+All outputs valid, consistent with the official scorer, and no worse than the baseline.

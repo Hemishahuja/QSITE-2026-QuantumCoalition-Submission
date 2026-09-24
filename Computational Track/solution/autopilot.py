@@ -91,8 +91,10 @@ def commit_if_changed(message: str) -> bool:
     return True
 
 
-def current_total(state: dict) -> float:
-    return sum(r["score"] for r in state["rows"].values())
+def current_total(state: dict, names: list[str] | None = None) -> float:
+    if names is None:
+        return sum(r["score"] for r in state["rows"].values())
+    return sum(r["score"] for name, r in state["rows"].items() if name in names)
 
 
 def merge_best(state: dict, result: dict, budget: float, seed: int, tag: str) -> tuple[bool, list[str]]:
@@ -123,17 +125,19 @@ def merge_best(state: dict, result: dict, budget: float, seed: int, tag: str) ->
     return improved, notes
 
 
-def run_pass(budget: float, seed: int, tag: str, state: dict) -> None:
-    before = current_total(state) if state["rows"] else None
+def run_pass(budget: float, seed: int, tag: str, state: dict, names: list[str] | None = None) -> None:
+    # Scoped to `names` when given, so a partial-scope subtotal never gets compared against
+    # the full six-benchmark total (that comparison would be apples to oranges).
+    before = current_total(state, names) if state["rows"] else None
     # lb_budget is kept tiny here: the lower bound doesn't change run to run, so we don't
     # want to re-spend the whole iteration budget re-proving it every single pass.
-    result = run_bench(budget=budget, seed=seed, quiet=True, lb_budget=1.0)
+    result = run_bench(budget=budget, seed=seed, quiet=True, lb_budget=1.0, names=names)
     if not result["all_valid"]:
         log(f"[{tag}] seed={seed} budget={budget:.1f}s produced an INVALID result -- discarded")
         return
     improved, notes = merge_best(state, result, budget, seed, tag)
     if improved:
-        after = current_total(state)
+        after = current_total(state, names)
         state["history"].append(
             {
                 "time": time.time(),
@@ -201,10 +205,21 @@ def main() -> None:
     parser.add_argument(
         "--param-search-every", type=int, default=5, help="run a DEFAULT_PARAMS A/B pass every N iterations (0 to disable)"
     )
+    parser.add_argument(
+        "--names", nargs="*", default=None,
+        help="only search these benchmarks (skip the rest entirely -- use this once some benchmarks are at their proven lower bound)",
+    )
     args = parser.parse_args()
 
     state = load_state()
-    log(f"Resuming; current best total = {current_total(state):.1f}" if state["rows"] else "Starting fresh (no prior state found)")
+    log(
+        f"Resuming; current best total = {current_total(state, args.names):.1f}"
+        + (f" (scoped subtotal for {args.names})" if args.names else "")
+        if state["rows"]
+        else "Starting fresh (no prior state found)"
+    )
+    if args.names:
+        log(f"Scoped to: {args.names} (not touching the rest -- they're assumed settled)")
 
     deadline = time.time() + args.duration * 60 if args.duration else math.inf
     rng = random.Random()
@@ -214,14 +229,14 @@ def main() -> None:
             iteration += 1
             budget = rng.uniform(args.min_budget, args.max_budget)
             seed = rng.randrange(1_000_000)
-            run_pass(budget, seed, f"iter{iteration}", state)
-            if args.param_search_every and iteration % args.param_search_every == 0:
+            run_pass(budget, seed, f"iter{iteration}", state, names=args.names)
+            if args.param_search_every and iteration % args.param_search_every == 0 and not args.names:
                 try_param_profiles(budget=min(args.max_budget, 20.0), state=state)
             if args.once:
                 break
     except KeyboardInterrupt:
         log("Interrupted by user")
-    final = f"{current_total(state):.1f}" if state["rows"] else "n/a"
+    final = f"{current_total(state, args.names):.1f}" if state["rows"] else "n/a"
     log(f"Stopping after {iteration} iteration(s). Final best total = {final}")
 
 
