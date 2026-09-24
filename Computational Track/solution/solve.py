@@ -1116,7 +1116,31 @@ class Solver:
         ranked.sort()
         top = ranked[:3]
 
-        # Escalate beam width on the most promising starts.
+        # Fast-track the single best-ranked start to the largest widths FIRST, before the
+        # full grid below. Reaching a big width can matter a lot (some instances only give up
+        # their best result at width>=2048) and the full grid only gets there after finishing
+        # every smaller width across all 3 starts x 2 slacks -- 24 attempts -- first. Under
+        # time pressure (a loaded machine, a shorter caller-supplied budget), that ordering
+        # can run out of time before ever reaching the width that matters. Doing the most
+        # promising lead's escalation first means the width that actually helps gets tried
+        # even if the deadline hits partway through, instead of being spent on lower-ranked
+        # starts at small widths. General: reacts to whatever `top[0]` is for THIS program.
+        if top:
+            best_name, best_pl = top[0][2], top[0][3]
+            for width in (32, 128, 512, 2048, 4096):
+                if self._done(deadline):
+                    return self._result()
+                for slack in (1, 0):
+                    st = self._beam(best_pl, {"width": width, "slack": slack}, deadline)
+                    self._offer_state(st, f"beam(w={width},slack={slack}) from {best_name} [priority]")
+                    if self._done(deadline):
+                        return self._result()
+                if self.best_state is not None and not self._done(deadline):
+                    self._refine(self.best_state, {"width": max(32, width // 4)}, deadline)
+
+        # Escalate beam width on the most promising starts (full grid, for thoroughness/
+        # diversity if time remains -- the priority pass above already covers the most
+        # likely winner).
         for width in (32, 128, 512, 2048):
             for slack in (1, 0):
                 for _, _, name, pl in top:
