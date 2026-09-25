@@ -1,0 +1,54 @@
+{
+  "record": "unlogged_emission_failure",
+  "benchmark": "qaoa_random",
+  "preserved_at": "2026-09-25T19:15:00-04:00",
+  "source": "inline solve_joint smoke, stdout only; never appended to cpsat_joint_results.jsonl",
+  "model_state_when_found": "after the gap/used_gap predecessor constraints and after restoring activity = sum(fire)+sum(swap); before the shared-wire layer-order constraints that are in cpsat_joint.py now",
+  "run": {
+    "workers": 5,
+    "time_limit_s": 40,
+    "warm_start": true,
+    "T": 22,
+    "stdout": [
+      "heartbeat incumbent obj=23 score=11.5 bound=8.0 t=8.9s",
+      "heartbeat incumbent obj=21 score=10.5 bound=8.0 t=11.4s",
+      "status FEASIBLE accepted False obj None official None",
+      "reject: emit could not realize model layers in program order (gate=14 layer=1 asap=4 earliest_swap=None pending=0)"
+    ]
+  },
+  "incumbent": {
+    "objective": 21,
+    "model_score": 10.5,
+    "dual_bound_at_heartbeat": 8.0,
+    "accepted": false,
+    "official": null
+  },
+  "failure": {
+    "function": "_emit_in_program_order",
+    "reached_only_after": "_emit_by_layer raised (otherwise the message would be 'layer order would reorder gates' or 'layer order missed a gate')",
+    "gate_index": 14,
+    "model_layer": 1,
+    "asap_layer": 4,
+    "earliest_pending_swap_layer": null,
+    "pending_swap_count": 0,
+    "meaning": "Gates 0..13 and every SWAP inside the model depth had already been appended. Gate 14's endpoints are pos[0] because its model layer is 1. ASAP 4 means the later of those two physical qubits already had last-use 3."
+  },
+  "placement": null,
+  "swap_layer_assignments": null,
+  "gate_layers": null,
+  "gate_asap_layers": null,
+  "not_retained": "The smoke printed only the heartbeat lines and the reject string. Placement, per-gate model layers, SWAP (layer, edge) pairs, and the last-use map were never written. They cannot be reconstructed from the reject string. A second qaoa_random solve was not started, because a live qaoa_random process is using the machine and was not to be disturbed.",
+  "diagnosis": {
+    "verdict": "not decidable from the retained error tuple",
+    "what_is_proven": [
+      "The solver returned a FEASIBLE assignment with objective 21. Official scoring never ran, because emission raised first.",
+      "The failure is inside the program-order emitter, after the layer-bucket emitter had already refused the same assignment.",
+      "At the stuck point the emitter had committed every gate before index 14 and every SWAP. Nothing remained that this policy is allowed to insert in front of gate 14.",
+      "Gate 14 cannot be official layer 1 in that committed order: some already-emitted op used one of its initial physical qubits at layer 3."
+    ],
+    "case_a_greedy_miss": "Would be true only if every op that set those last-uses to 3 was a SWAP, and some other interleaving can delay those SWAPs until after gate 14 while still giving each SWAP its model layer. The policy emits a SWAP as soon as it is the earliest pending SWAP and its layer is <= the current gate's model layer. An earlier gate with a high model layer therefore flushes later SWAPs before gate 14 even when those SWAPs could legally follow gate 14. That is a real limitation of this emitter, but this log does not show that the dirtying ops were SWAPs.",
+    "case_b_model_gap": "Would be true if any gate j<14 uses one of gate 14's pos[0] physical qubits. Program order forces that gate to stay before gate 14, so no SWAP reordering can bring the ASAP back to 1. A layer-1 SWAP on those same qubits is also a model contradiction: the gate and the SWAP cannot both be layer 1 on a shared qubit, because emitting either one first makes the other's ASAP at least 2. The model is supposed to forbid that pair by disjointness, so a surviving contradiction would be an earlier gate, or a layer>=2 SWAP that itself cannot move past gate 14 without missing its own model layer.",
+    "decision_test_that_was_not_available": "Inspect the emitted prefix and last{} at gate 14. If any 2Q in that prefix touches gate 14's pos[0] wires, the assignment has no program-order routing and the model needs a constraint. If only SWAPs touch those wires, test whether delaying those SWAPs until after gate 14 still realizes their model layers. That second test is the only way to call it a greedy miss.",
+    "constraint_added_after_this_smoke": "Shared-wire order is now in _build_joint_model: two gates that touch the same physical qubit must increase in layer, and a SWAP that shares an endpoint with a gate must sit strictly before or strictly after that gate in both layer and program index. That block was not in the model that produced objective 21. It targets case (b). It has not been checked against this witness, because the witness was not saved."
+  }
+}

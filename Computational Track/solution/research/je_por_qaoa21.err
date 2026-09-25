@@ -1,0 +1,115 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 299, in _work
+    status, trail, idx, nodes = por_search(gates, T, tl, suffix_lb=suf, root_opts=[root], memo_cap=memo_cap)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 222, in por_search
+    ok = dfs(0, 0, -1)
+         ^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 171, in _dfs
+    if dfs(k, s, -1):
+       ^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 191, in _dfs
+    if dfs(k + 1, s, -1):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 171, in _dfs
+    if dfs(k, s, -1):
+       ^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 212, in _dfs
+    if dfs(k, s + 1, i):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 191, in _dfs
+    if dfs(k + 1, s, -1):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 171, in _dfs
+    if dfs(k, s, -1):
+       ^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 191, in _dfs
+    if dfs(k + 1, s, -1):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 171, in _dfs
+    if dfs(k, s, -1):
+       ^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 212, in _dfs
+    if dfs(k, s + 1, i):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 212, in _dfs
+    if dfs(k, s + 1, i):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 191, in _dfs
+    if dfs(k + 1, s, -1):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 171, in _dfs
+    if dfs(k, s, -1):
+       ^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 212, in _dfs
+    if dfs(k, s + 1, i):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 191, in _dfs
+    if dfs(k + 1, s, -1):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 131, in dfs
+    if _dfs(k, s, last):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 218, in _dfs
+    memo[key] = (s, T)
+    ~~~~^^^^^
+MemoryError
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 351, in <module>
+    main()
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\je_por.py", line 329, in main
+    for row in pool.imap_unordered(_work, [(name, T, tl, r, memo_cap) for r in todo]):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+MemoryError

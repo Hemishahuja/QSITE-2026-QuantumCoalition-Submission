@@ -3,9 +3,10 @@
 Run from the `Computational Track` directory:
     python solution/generate_demo_assets.py
 
-Writes PNGs (and one GIF) into solution/demo_assets/. Everything here re-derives its
-numbers by actually calling solve(), the official scorer, and lower_bound() -- nothing
-is a hardcoded picture of old results. Each benchmark is solved once and reused.
+Writes PNGs (and one GIF) into solution/demo_assets/. Scores are re-derived by calling
+solve() and the official scorer. Lower bounds are the Sep 25 audited floors in
+AUDITED_LOWER_BOUNDS. solve().lower_bound() still returns the weaker in-budget numbers
+(ladder 6.0, qaoa 6.0, dense 9.5) and must not be drawn on the slides.
 """
 
 from __future__ import annotations
@@ -20,7 +21,7 @@ import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from solution.solve import lower_bound, solve  # noqa: E402
+from solution.solve import solve  # noqa: E402
 from starter_kit.baseline_routing import solve as baseline_solve  # noqa: E402
 from starter_kit.benchmarks import BENCHMARKS  # noqa: E402
 from starter_kit.hardware import build_hardware_graph  # noqa: E402
@@ -35,6 +36,23 @@ DEMO_BENCHMARK = "ghz_star"
 # The instance where the remaining gap to the lower bound is largest.
 HARD_BENCHMARK = "dense_random"
 
+# Floors proved outside solve(), as of FOLLOWUP_FINDINGS.md (2026-09-25).
+# Do not replace these with solve().lower_bound().
+#   ghz / chain / vqe: score matches the critical-path (and hub) argument.
+#   ladder 6.5: joint exact search, T=12 infeasible; 3 SWAPs / depth 7 is a witness.
+#   qaoa 9.0: at least 5 SWAPs, depth at least 8. A log field "proven_score_ge: 11.0"
+#     is a timeout artifact (the search died inside its first threshold), not a proof.
+#   dense 17.0: at least 11 SWAPs from Q-Synth's DAG relaxation, plus depth at least 12.
+#     That SWAP floor relies on Q-Synth's optimality claim.
+AUDITED_LOWER_BOUNDS = {
+    "ghz_star": 6.5,
+    "chain_trotter": 4.5,
+    "ladder_trotter": 6.5,
+    "qaoa_random": 9.0,
+    "dense_random": 17.0,
+    "vqe_layers": 3.0,
+}
+
 
 def _swap_edges(routed: list[tuple]) -> list[tuple[int, int]]:
     return [tuple(op[1:]) for op in routed if op[0] == "SWAP"]
@@ -47,9 +65,7 @@ def collect(graph) -> list[dict]:
         bl = score_summary(program, graph, bl_placement, bl_routed)
         our_placement, our_routed = solve(program, graph, time_budget=20)
         our = score_summary(program, graph, our_placement, our_routed)
-        # 25s is enough for the exact min-SWAP search to finish on ladder_trotter
-        # and qaoa_random; a shorter cap returns a strictly weaker bound.
-        lb = float(lower_bound(program, graph, time_limit=25.0))
+        lb = float(AUDITED_LOWER_BOUNDS[name])
         proven = our["valid"] and abs(our["score"] - lb) < 1e-9
         rows.append(
             {
@@ -158,7 +174,15 @@ def make_results_chart(rows: list[dict]) -> None:
         f"Total: baseline {sum(baseline_scores):.1f}  |  lower bound {sum(bounds):.1f}  |  ours {sum(our_scores):.1f}"
     )
     ax.legend()
-    fig.tight_layout()
+    fig.text(
+        0.5,
+        0.01,
+        "dense floor 17.0 = at least 11 SWAPs (DAG-relaxation SAT) + depth 12.   qaoa floor 9.0 = 5 SWAPs + depth 8.",
+        ha="center",
+        fontsize=8,
+        color="#334155",
+    )
+    fig.tight_layout(rect=(0, 0.04, 1, 1))
     out_path = OUT / "results_chart.png"
     fig.savefig(out_path, dpi=150)
     plt.close(fig)
@@ -187,7 +211,7 @@ def make_scoreboard(rows: list[dict]) -> None:
     proven_n = sum(1 for row in rows if row["proven"])
     cell.append(["TOTAL", f"{bl_total:.1f}", f"{our_total:.1f}", "", "", f"{lb_total:.1f}", f"{proven_n} of {len(rows)} proven"])
 
-    fig, ax = plt.subplots(figsize=(11, 3.6))
+    fig, ax = plt.subplots(figsize=(11, 4.2))
     ax.axis("off")
     table = ax.table(
         cellText=cell,
@@ -208,7 +232,16 @@ def make_scoreboard(rows: list[dict]) -> None:
         elif cell[r - 1][-1] == "proven optimal":
             cell_obj.set_facecolor("#dcfce7")
     ax.set_title("Official scorer, 20s budget, default seed. Lower is better.", fontsize=12, pad=12)
-    fig.tight_layout()
+    fig.text(
+        0.5,
+        0.04,
+        "Ladder 6.5 is an exhaustive proof. qaoa floor is 9.0 (5 SWAPs + depth 8). "
+        "dense floor is 17.0 (at least 11 SWAPs in a relaxed model, plus depth 12). 35.5 is best found.",
+        ha="center",
+        fontsize=8,
+        color="#334155",
+    )
+    fig.tight_layout(rect=(0, 0.06, 1, 1))
     out_path = OUT / "scoreboard.png"
     fig.savefig(out_path, dpi=150)
     plt.close(fig)
