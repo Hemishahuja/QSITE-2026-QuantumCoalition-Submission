@@ -1,0 +1,4 @@
+
+=== dense_random T=30 complete=False ===
+Incomplete search. The full proof horizon is depth<=70 (2*35.5-1). This run uses T=30 and swaps<=28.
+heartbeat incumbent obj=71 score=35.5 bound=12.0 t=25.3s

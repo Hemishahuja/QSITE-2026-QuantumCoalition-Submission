@@ -1,0 +1,15 @@
+=== qaoa_random gates=18 qubits=10 tap_seconds=180.0 ===
+incumbent official score=11.5 swaps=6 depth=11 valid=True
+incumbent allocation distance_sum=10 sum_ceil_L/2=5 (actual swaps 6)
+re-TS of incumbent gaps: exact=17 approx=0 (0.0s)
+qaoa_random retswap_incumbent: valid=True swaps=6 depth=11 score=11.5 ok
+  new best for qaoa_random saved to best_qaoa_random.json
+=== qaoa_random gates=18 qubits=10 tap_seconds=200.0 ===
+incumbent official score=11.5 swaps=6 depth=11 valid=True
+incumbent allocation distance_sum=10 sum_ceil_L/2=5 (actual swaps 6)
+re-TS of incumbent gaps: exact=17 approx=0 (0.0s)
+qaoa_random retswap_incumbent: valid=True swaps=6 depth=11 score=11.5 ok
+TAP status=FEASIBLE bound=0.0 obj=6.0 elapsed=200.1s
+TAP bound implies swaps >= 0
+qaoa_random tap: valid=True swaps=6 depth=11 score=11.5 ok
+appended 2 records to wagner_results.jsonl

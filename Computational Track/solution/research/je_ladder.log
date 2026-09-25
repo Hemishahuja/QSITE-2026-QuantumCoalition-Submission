@@ -1,0 +1,2 @@
+  T=12 (score 6.0): infeasible (725.1s, nodes=7018533, memo=924518)
+{"benchmark": "ladder_trotter", "prefix": null, "eager": false, "T_start": 12, "elapsed": 725.1, "nodes": 7018533, "proven_f_gt": 12, "proven_score_ge": 6.5}

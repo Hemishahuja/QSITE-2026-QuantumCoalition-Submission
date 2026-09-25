@@ -1,0 +1,8 @@
+interval suffix bounds: [3, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+dense_random prefix 18 result 2 LB only (min > result) nodes 7155712
+interval suffix bounds: [3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  B=3: infeasible (281.9s, nodes=7481751, memo=934970)
+dense_random prefix 20 result 3 LB only (min > result) nodes 8036352
+interval suffix bounds: [3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+  B=3: infeasible (15.0s, nodes=291453, memo=157528)
+dense_random prefix 22 result 3 LB only (min > result) nodes 7061504

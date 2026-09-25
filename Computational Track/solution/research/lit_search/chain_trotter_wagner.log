@@ -1,0 +1,21 @@
+=== chain_trotter gates=9 qubits=10 tap_seconds=20 ===
+incumbent official score=4.5 swaps=0 depth=9 valid=True
+incumbent allocation distance_sum=0 sum_ceil_L/2=0 (actual swaps 0)
+re-TS of incumbent gaps: exact=8 approx=0 (0.0s)
+chain_trotter retswap_incumbent: valid=True swaps=0 depth=9 score=4.5 ok
+  new best for chain_trotter saved to best_chain_trotter.json
+BMT cap=None segments=[9] bridge_lb=0 (0.0s)
+BMT cap=8 segments=[8, 1] bridge_lb=11 (0.0s)
+BMT cap=6 segments=[6, 3] bridge_lb=9 (0.0s)
+BMT cap=5 segments=[5, 4] bridge_lb=8 (0.0s)
+BMT cap=4 segments=[4, 4, 1] bridge_lb=17 (0.0s)
+BMT cap=3 segments=[3, 3, 3] bridge_lb=12 (0.0s)
+chain_trotter bmt_capmax: valid=True swaps=0 depth=9 score=4.5 ok
+chain_trotter bmt_cap8: valid=True swaps=15 depth=13 score=21.5 ok
+chain_trotter bmt_cap6: valid=True swaps=16 depth=16 score=24.0 ok
+chain_trotter bmt_cap5: valid=True swaps=11 depth=10 score=16.0 ok
+chain_trotter bmt_cap4: valid=True swaps=26 depth=31 score=41.5 ok
+chain_trotter bmt_cap3: valid=True swaps=15 depth=12 score=21.0 ok
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.3s
+chain_trotter tap: valid=True swaps=0 depth=9 score=4.5 ok
+appended 8 records to wagner_results.jsonl

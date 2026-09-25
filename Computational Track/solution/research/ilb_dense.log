@@ -1,0 +1,96 @@
+len=2: intervals=39 exact=39 improved=0 LB(whole)=0 t=1s
+len=3: intervals=38 exact=38 improved=0 LB(whole)=0 t=1s
+len=4: intervals=37 exact=37 improved=0 LB(whole)=0 t=1s
+len=5: intervals=36 exact=36 improved=0 LB(whole)=0 t=1s
+len=6: intervals=35 exact=35 improved=0 LB(whole)=0 t=1s
+len=7: intervals=34 exact=34 improved=2 LB(whole)=2 t=1s
+len=8: intervals=33 exact=33 improved=3 LB(whole)=3 t=11s
+len=9: intervals=32 exact=32 improved=2 LB(whole)=3 t=15s
+len=10: intervals=31 exact=31 improved=3 LB(whole)=5 t=18s
+len=11: intervals=30 exact=30 improved=4 LB(whole)=6 t=34s
+len=12: intervals=29 exact=25 improved=3 LB(whole)=6 t=58s
+len=13: intervals=28 exact=18 improved=2 LB(whole)=6 t=113s
+len=14: intervals=27 exact=11 improved=4 LB(whole)=7 t=190s
+len=15: intervals=26 exact=8 improved=3 LB(whole)=7 t=272s
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\interval_lb.py", line 44, in work
+    res, wit, nodes = general_min_swaps(gates[i:j], time_limit=tl, start_budget=start, suffix_lb=suffix,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 65, in general_min_swaps
+    return _search(gates, idx, G, L, n, dist, edges, max_budget, time_limit, start_budget, verbose,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 209, in _search
+    ok = dfs(0, B, None)
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 163, in _dfs
+    if dfs(k, rem, None):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 163, in _dfs
+    if dfs(k, rem, None):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 163, in _dfs
+    if dfs(k, rem, None):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 163, in _dfs
+    if dfs(k, rem, None):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 163, in _dfs
+    if dfs(k, rem, None):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 163, in _dfs
+    if dfs(k, rem, None):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 163, in _dfs
+    if dfs(k, rem, None):
+       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 195, in _dfs
+    if dfs(k, rem - 1, (u, v)):
+       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 111, in dfs
+    if _dfs(k, rem, last):
+       ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\general_exact.py", line 201, in _dfs
+    memo[key] = rem
+    ~~~~^^^^^
+MemoryError
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\interval_lb.py", line 93, in <module>
+    main()
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\interval_lb.py", line 72, in main
+    for i, j, lb, exact, el, nodes in pool.imap_unordered(work, tasks):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+MemoryError

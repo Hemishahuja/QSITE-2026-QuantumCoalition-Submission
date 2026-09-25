@@ -1,0 +1,62 @@
+=== slices dense_random gaps_per_slice=3 seconds_each=40.0 ===
+incumbent distance_sum=48 sum_ceil_L/2=24
+slice gaps[0,3) gates=4 incumbent_lb=0 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=2.6s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[3,6) gates=4 incumbent_lb=1 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.0s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[6,9) gates=4 incumbent_lb=1 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.2s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[9,12) gates=4 incumbent_lb=2 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.6s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[12,15) gates=4 incumbent_lb=0 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=3.2s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[15,18) gates=4 incumbent_lb=2 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.5s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[18,21) gates=4 incumbent_lb=3 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=3.9s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[21,24) gates=4 incumbent_lb=4 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.2s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[24,27) gates=4 incumbent_lb=1 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.5s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[27,30) gates=4 incumbent_lb=4 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.2s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[30,33) gates=4 incumbent_lb=3 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=3.9s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[33,36) gates=4 incumbent_lb=1 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.3s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[36,39) gates=4 incumbent_lb=2 budget=40s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.1s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+sliced TAP swaps >= 0 over 13 slices
+wrote slice record, swaps >= 0
+=== slices dense_random gaps_per_slice=9 seconds_each=120.0 ===
+incumbent distance_sum=48 sum_ceil_L/2=24
+slice gaps[0,9) gates=10 incumbent_lb=2 budget=120s
+TAP status=OPTIMAL bound=1.0 obj=1.0 elapsed=18.2s
+  slice swaps>=1 status=OPTIMAL obj=1.0
+slice gaps[9,18) gates=10 incumbent_lb=4 budget=120s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=22.7s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+slice gaps[18,27) gates=10 incumbent_lb=8 budget=120s
+TAP status=OPTIMAL bound=2.0 obj=2.0 elapsed=59.3s
+  slice swaps>=2 status=OPTIMAL obj=2.0
+slice gaps[27,36) gates=10 incumbent_lb=8 budget=120s
+TAP status=OPTIMAL bound=1.0 obj=1.0 elapsed=32.5s
+  slice swaps>=1 status=OPTIMAL obj=1.0
+slice gaps[36,39) gates=4 incumbent_lb=2 budget=120s
+TAP status=OPTIMAL bound=0.0 obj=0.0 elapsed=4.1s
+  slice swaps>=0 status=OPTIMAL obj=0.0
+sliced TAP swaps >= 4 over 5 slices
+wrote slice record, swaps >= 4

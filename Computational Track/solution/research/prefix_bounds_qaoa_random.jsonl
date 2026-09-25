@@ -1,0 +1,4 @@
+{"benchmark": "qaoa_random", "prefix": 8, "elapsed": 0.5, "nodes": 123892, "exact_min_swaps": 1, "witness_official": {"valid": true, "message": "ok", "swap_count": 1, "depth": 5, "score": 3.5}, "global_swap_lb_so_far": 1}
+{"benchmark": "qaoa_random", "prefix": 10, "elapsed": 10.9, "nodes": 1724810, "exact_min_swaps": 2, "witness_official": {"valid": true, "message": "ok", "swap_count": 2, "depth": 7, "score": 5.5}, "global_swap_lb_so_far": 2}
+{"benchmark": "qaoa_random", "prefix": 12, "elapsed": 92.4, "nodes": 11059105, "exact_min_swaps": 3, "witness_official": {"valid": true, "message": "ok", "swap_count": 3, "depth": 9, "score": 7.5}, "global_swap_lb_so_far": 3}
+{"benchmark": "qaoa_random", "prefix": 14, "elapsed": 3.7, "nodes": 462288, "exact_min_swaps": 3, "witness_official": {"valid": true, "message": "ok", "swap_count": 3, "depth": 9, "score": 7.5}, "global_swap_lb_so_far": 3}

@@ -1,0 +1,7 @@
+ghz_star {'valid': True, 'message': 'ok', 'swap_count': 2, 'depth': 9, 'score': 6.5, 'elapsed': 0.01374349999991864}
+chain_trotter {'valid': True, 'message': 'ok', 'swap_count': 0, 'depth': 9, 'score': 4.5, 'elapsed': 0.00048249999986182956}
+ladder_trotter {'valid': True, 'message': 'ok', 'swap_count': 3, 'depth': 7, 'score': 6.5, 'elapsed': 20.00198979999982}
+qaoa_random {'valid': True, 'message': 'ok', 'swap_count': 6, 'depth': 11, 'score': 11.5, 'elapsed': 20.003751299999976}
+dense_random {'valid': True, 'message': 'ok', 'swap_count': 24, 'depth': 23, 'score': 35.5, 'elapsed': 20.370461100000057}
+vqe_layers {'valid': True, 'message': 'ok', 'swap_count': 0, 'depth': 6, 'score': 3.0, 'elapsed': 0.0010142000000996632}
+total 67.5

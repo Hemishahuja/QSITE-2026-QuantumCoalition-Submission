@@ -1,0 +1,51 @@
+dense_random: 48 windows, K=[6, 8, 10, 12], step=3, extra=0, enum 40.0s, top=6, wide=512
+resuming: 27 windows already in lns_free_dense_random.jsonl, 21 to go
+{"benchmark": "dense_random", "i": 27, "K": 8, "extra": 0, "w_orig": 8, "B": 8, "budget_levels_exhausted": 7, "enum_nodes": 2148352, "end_states": 126, "orig_end_found": true, "min_window_swaps": 7, "narrow_evaluated": 126, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 40.0, "elapsed": 40.2}
+{"benchmark": "dense_random", "i": 15, "K": 10, "extra": 0, "w_orig": 9, "B": 9, "budget_levels_exhausted": 7, "enum_nodes": 1865728, "end_states": 25, "orig_end_found": false, "min_window_swaps": 7, "narrow_evaluated": 25, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [25, 21], "t_enum": 40.0, "elapsed": 41.5}
+{"benchmark": "dense_random", "i": 18, "K": 10, "extra": 0, "w_orig": 8, "B": 8, "budget_levels_exhausted": 8, "enum_nodes": 899201, "end_states": 10, "orig_end_found": true, "min_window_swaps": 8, "narrow_evaluated": 10, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 19.1, "elapsed": 20.1}
+{"benchmark": "dense_random", "i": 21, "K": 10, "extra": 0, "w_orig": 11, "B": 11, "budget_levels_exhausted": 8, "enum_nodes": 1646592, "end_states": 6, "orig_end_found": false, "min_window_swaps": 8, "narrow_evaluated": 6, "base_score": 35.5, "best_score": 36.0, "best_pass": "narrow", "best_swaps_depth": [24, 24], "t_enum": 40.0, "elapsed": 40.7}
+{"benchmark": "dense_random", "i": 24, "K": 10, "extra": 0, "w_orig": 8, "B": 8, "budget_levels_exhausted": 7, "enum_nodes": 2113536, "end_states": 580, "orig_end_found": true, "min_window_swaps": 7, "narrow_evaluated": 580, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 40.1, "elapsed": 41.3}
+{"benchmark": "dense_random", "i": 27, "K": 10, "extra": 0, "w_orig": 9, "B": 9, "budget_levels_exhausted": 7, "enum_nodes": 1826816, "end_states": 0, "orig_end_found": false, "min_window_swaps": null, "narrow_evaluated": 0, "base_score": 35.5, "best_score": null, "best_pass": null, "best_swaps_depth": null, "t_enum": 40.0, "elapsed": 40.0}
+{"benchmark": "dense_random", "i": 30, "K": 10, "extra": 0, "w_orig": 8, "B": 8, "budget_levels_exhausted": 7, "enum_nodes": 2451456, "end_states": 4, "orig_end_found": true, "min_window_swaps": 8, "narrow_evaluated": 4, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 40.0, "elapsed": 40.0}
+{"benchmark": "dense_random", "i": 0, "K": 12, "extra": 0, "w_orig": 3, "B": 3, "budget_levels_exhausted": 3, "enum_nodes": 30, "end_states": 2, "orig_end_found": true, "min_window_swaps": 3, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 1.1}
+{"benchmark": "dense_random", "i": 3, "K": 12, "extra": 0, "w_orig": 4, "B": 4, "budget_levels_exhausted": 4, "enum_nodes": 329, "end_states": 1, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 1, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.4}
+{"benchmark": "dense_random", "i": 6, "K": 12, "extra": 0, "w_orig": 6, "B": 6, "budget_levels_exhausted": 6, "enum_nodes": 24010, "end_states": 4, "orig_end_found": true, "min_window_swaps": 6, "narrow_evaluated": 4, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.6, "elapsed": 2.0}
+{"benchmark": "dense_random", "i": 9, "K": 12, "extra": 0, "w_orig": 6, "B": 6, "budget_levels_exhausted": 6, "enum_nodes": 33384, "end_states": 3, "orig_end_found": true, "min_window_swaps": 6, "narrow_evaluated": 3, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.7, "elapsed": 1.6}
+{"benchmark": "dense_random", "i": 12, "K": 12, "extra": 0, "w_orig": 10, "B": 10, "budget_levels_exhausted": 7, "enum_nodes": 1974272, "end_states": 6, "orig_end_found": false, "min_window_swaps": 8, "narrow_evaluated": 6, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [25, 21], "t_enum": 40.0, "elapsed": 41.3}
+{"benchmark": "dense_random", "i": 15, "K": 12, "extra": 0, "w_orig": 9, "B": 9, "budget_levels_exhausted": 8, "enum_nodes": 2187264, "end_states": 5, "orig_end_found": true, "min_window_swaps": 9, "narrow_evaluated": 5, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 40.0, "elapsed": 40.6}
+{"benchmark": "dense_random", "i": 18, "K": 12, "extra": 0, "w_orig": 10, "B": 10, "budget_levels_exhausted": 8, "enum_nodes": 2238464, "end_states": 8, "orig_end_found": false, "min_window_swaps": 8, "narrow_evaluated": 8, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 40.0, "elapsed": 40.7}
+{"benchmark": "dense_random", "i": 21, "K": 12, "extra": 0, "w_orig": 14, "B": 14, "budget_levels_exhausted": 8, "enum_nodes": 2037760, "end_states": 0, "orig_end_found": false, "min_window_swaps": null, "narrow_evaluated": 0, "base_score": 35.5, "best_score": null, "best_pass": null, "best_swaps_depth": null, "t_enum": 40.0, "elapsed": 40.0}
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 269, in run_window
+    ends, complete, nodes = enumerate_window(gates[i:j], pos_i, ready_i, B, enum_s)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 178, in enumerate_window
+    rec(0, 0, None, Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  [Previous line repeated 4 more times]
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 146, in rec
+    memo[key] = s
+    ~~~~^^^^^
+MemoryError
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 354, in <module>
+    main()
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 342, in main
+    for row in pool.imap_unordered(run_window, tasks):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+MemoryError

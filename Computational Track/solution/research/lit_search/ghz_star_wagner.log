@@ -1,0 +1,21 @@
+=== ghz_star gates=7 qubits=8 tap_seconds=30 ===
+incumbent official score=6.5 swaps=2 depth=9 valid=True
+incumbent allocation distance_sum=4 sum_ceil_L/2=2 (actual swaps 2)
+re-TS of incumbent gaps: exact=6 approx=0 (0.0s)
+ghz_star retswap_incumbent: valid=True swaps=2 depth=9 score=6.5 ok
+  new best for ghz_star saved to best_ghz_star.json
+BMT cap=None segments=[3, 3, 1] bridge_lb=12 (0.0s)
+BMT cap=8 segments=[3, 3, 1] bridge_lb=12 (0.0s)
+BMT cap=6 segments=[3, 3, 1] bridge_lb=12 (0.0s)
+BMT cap=5 segments=[3, 3, 1] bridge_lb=12 (0.0s)
+BMT cap=4 segments=[3, 3, 1] bridge_lb=12 (0.0s)
+BMT cap=3 segments=[3, 3, 1] bridge_lb=12 (0.0s)
+ghz_star bmt_capmax: valid=True swaps=18 depth=17 score=26.5 ok
+ghz_star bmt_cap8: valid=True swaps=18 depth=17 score=26.5 ok
+ghz_star bmt_cap6: valid=True swaps=18 depth=17 score=26.5 ok
+ghz_star bmt_cap5: valid=True swaps=18 depth=17 score=26.5 ok
+ghz_star bmt_cap4: valid=True swaps=18 depth=17 score=26.5 ok
+ghz_star bmt_cap3: valid=True swaps=18 depth=17 score=26.5 ok
+TAP status=OPTIMAL bound=2.0 obj=2.0 elapsed=3.5s
+ghz_star tap: valid=True swaps=2 depth=9 score=6.5 ok
+appended 8 records to wagner_results.jsonl

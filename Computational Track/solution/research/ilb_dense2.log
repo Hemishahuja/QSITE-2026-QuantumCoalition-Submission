@@ -1,0 +1,3 @@
+len=16: intervals=25 exact=4 improved=5 LB(whole)=7 t=302s
+len=17: intervals=24 exact=1 improved=3 LB(whole)=7 t=624s
+len=18: intervals=23 exact=0 improved=2 LB(whole)=7 t=946s

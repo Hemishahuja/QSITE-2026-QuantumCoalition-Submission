@@ -1,0 +1,62 @@
+dense_random: 48 windows, K=[6, 8, 10, 12], step=3, extra=0, enum 45.0s, top=6, wide=512
+{"benchmark": "dense_random", "i": 0, "K": 6, "w_orig": 0, "B": 0, "budget_levels_exhausted": 0, "enum_nodes": 1, "end_states": 1, "orig_end_found": true, "min_window_swaps": 0, "narrow_evaluated": 1, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.7}
+{"benchmark": "dense_random", "i": 3, "K": 6, "w_orig": 1, "B": 1, "budget_levels_exhausted": 1, "enum_nodes": 4, "end_states": 2, "orig_end_found": true, "min_window_swaps": 1, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 1.2}
+{"benchmark": "dense_random", "i": 9, "K": 6, "w_orig": 3, "B": 3, "budget_levels_exhausted": 3, "enum_nodes": 111, "end_states": 1, "orig_end_found": true, "min_window_swaps": 3, "narrow_evaluated": 1, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.4}
+{"benchmark": "dense_random", "i": 6, "K": 6, "w_orig": 3, "B": 3, "budget_levels_exhausted": 3, "enum_nodes": 30, "end_states": 2, "orig_end_found": true, "min_window_swaps": 3, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 1.0}
+{"benchmark": "dense_random", "i": 15, "K": 6, "w_orig": 3, "B": 3, "budget_levels_exhausted": 3, "enum_nodes": 141, "end_states": 2, "orig_end_found": true, "min_window_swaps": 3, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.7}
+{"benchmark": "dense_random", "i": 12, "K": 6, "w_orig": 3, "B": 3, "budget_levels_exhausted": 3, "enum_nodes": 231, "end_states": 4, "orig_end_found": true, "min_window_swaps": 3, "narrow_evaluated": 4, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 1.7}
+{"benchmark": "dense_random", "i": 21, "K": 6, "w_orig": 6, "B": 6, "budget_levels_exhausted": 6, "enum_nodes": 14877, "end_states": 3, "orig_end_found": true, "min_window_swaps": 6, "narrow_evaluated": 3, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.3, "elapsed": 0.8}
+{"benchmark": "dense_random", "i": 24, "K": 6, "w_orig": 3, "B": 3, "budget_levels_exhausted": 3, "enum_nodes": 133, "end_states": 8, "orig_end_found": true, "min_window_swaps": 3, "narrow_evaluated": 8, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.9}
+{"benchmark": "dense_random", "i": 18, "K": 6, "w_orig": 7, "B": 7, "budget_levels_exhausted": 7, "enum_nodes": 356976, "end_states": 333, "orig_end_found": true, "min_window_swaps": 5, "narrow_evaluated": 333, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 6.6, "elapsed": 9.7}
+{"benchmark": "dense_random", "i": 30, "K": 6, "w_orig": 6, "B": 6, "budget_levels_exhausted": 6, "enum_nodes": 55505, "end_states": 2, "orig_end_found": true, "min_window_swaps": 6, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 1.4, "elapsed": 1.4}
+{"benchmark": "dense_random", "i": 33, "K": 6, "w_orig": 3, "B": 3, "budget_levels_exhausted": 3, "enum_nodes": 93, "end_states": 8, "orig_end_found": true, "min_window_swaps": 3, "narrow_evaluated": 8, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.0}
+{"benchmark": "dense_random", "i": 0, "K": 8, "w_orig": 1, "B": 1, "budget_levels_exhausted": 1, "enum_nodes": 4, "end_states": 2, "orig_end_found": true, "min_window_swaps": 1, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 1.7}
+{"benchmark": "dense_random", "i": 3, "K": 8, "w_orig": 3, "B": 3, "budget_levels_exhausted": 3, "enum_nodes": 80, "end_states": 4, "orig_end_found": true, "min_window_swaps": 3, "narrow_evaluated": 4, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 2.8}
+{"benchmark": "dense_random", "i": 6, "K": 8, "w_orig": 4, "B": 4, "budget_levels_exhausted": 4, "enum_nodes": 330, "end_states": 2, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 1.0}
+{"benchmark": "dense_random", "i": 9, "K": 8, "w_orig": 4, "B": 4, "budget_levels_exhausted": 4, "enum_nodes": 876, "end_states": 2, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.9}
+{"benchmark": "dense_random", "i": 12, "K": 8, "w_orig": 4, "B": 4, "budget_levels_exhausted": 4, "enum_nodes": 1884, "end_states": 4, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 4, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.1, "elapsed": 1.7}
+{"benchmark": "dense_random", "i": 27, "K": 6, "w_orig": 8, "B": 8, "budget_levels_exhausted": 7, "enum_nodes": 2220032, "end_states": 719, "orig_end_found": true, "min_window_swaps": 7, "narrow_evaluated": 719, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 45.0, "elapsed": 46.5}
+{"benchmark": "dense_random", "i": 15, "K": 8, "w_orig": 7, "B": 7, "budget_levels_exhausted": 7, "enum_nodes": 1272685, "end_states": 391, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 391, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [25, 21], "t_enum": 27.6, "elapsed": 31.8}
+{"benchmark": "dense_random", "i": 18, "K": 8, "w_orig": 7, "B": 7, "budget_levels_exhausted": 7, "enum_nodes": 69558, "end_states": 5, "orig_end_found": true, "min_window_swaps": 7, "narrow_evaluated": 5, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 1.4, "elapsed": 2.3}
+{"benchmark": "dense_random", "i": 24, "K": 8, "w_orig": 6, "B": 6, "budget_levels_exhausted": 6, "enum_nodes": 39476, "end_states": 523, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 523, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.7, "elapsed": 2.3}
+{"benchmark": "dense_random", "i": 21, "K": 8, "w_orig": 8, "B": 8, "budget_levels_exhausted": 8, "enum_nodes": 300736, "end_states": 58, "orig_end_found": true, "min_window_swaps": 7, "narrow_evaluated": 58, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 6.6, "elapsed": 7.8}
+{"benchmark": "dense_random", "i": 30, "K": 8, "w_orig": 7, "B": 7, "budget_levels_exhausted": 7, "enum_nodes": 375031, "end_states": 4, "orig_end_found": true, "min_window_swaps": 7, "narrow_evaluated": 4, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 6.9, "elapsed": 6.9}
+{"benchmark": "dense_random", "i": 0, "K": 10, "w_orig": 2, "B": 2, "budget_levels_exhausted": 2, "enum_nodes": 37, "end_states": 2, "orig_end_found": true, "min_window_swaps": 2, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 1.4}
+{"benchmark": "dense_random", "i": 3, "K": 10, "w_orig": 4, "B": 4, "budget_levels_exhausted": 4, "enum_nodes": 352, "end_states": 4, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 4, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 2.2}
+{"benchmark": "dense_random", "i": 6, "K": 10, "w_orig": 4, "B": 4, "budget_levels_exhausted": 4, "enum_nodes": 321, "end_states": 1, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 1, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.5}
+{"benchmark": "dense_random", "i": 9, "K": 10, "w_orig": 5, "B": 5, "budget_levels_exhausted": 5, "enum_nodes": 6320, "end_states": 2, "orig_end_found": true, "min_window_swaps": 5, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 0.2, "elapsed": 1.0}
+{"benchmark": "dense_random", "i": 12, "K": 10, "w_orig": 6, "B": 6, "budget_levels_exhausted": 6, "enum_nodes": 97211, "end_states": 49, "orig_end_found": true, "min_window_swaps": 5, "narrow_evaluated": 49, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 2.3, "elapsed": 4.6}
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 269, in run_window
+    ends, complete, nodes = enumerate_window(gates[i:j], pos_i, ready_i, B, enum_s)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 178, in enumerate_window
+    rec(0, 0, None, Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  [Previous line repeated 4 more times]
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 146, in rec
+    memo[key] = s
+    ~~~~^^^^^
+MemoryError
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 349, in <module>
+    main()
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 337, in main
+    for row in pool.imap_unordered(run_window, tasks):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+MemoryError

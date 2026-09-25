@@ -1,0 +1,7 @@
+{"root": [0, 1], "status": "infeasible", "nodes": 502, "elapsed": 0.0}
+{"root": [0, 4], "status": "infeasible", "nodes": 505, "elapsed": 0.0}
+{"root": [1, 0], "status": "infeasible", "nodes": 986, "elapsed": 0.0}
+{"root": [0, 4], "status": "infeasible", "nodes": 505, "elapsed": 0.0}
+{"root": [0, 1], "status": "infeasible", "nodes": 502, "elapsed": 0.0}
+{"root": [1, 2], "status": "infeasible", "nodes": 824, "elapsed": 0.0}
+{"root": [2, 1], "status": "feasible", "nodes": 101, "elapsed": 0.0, "witness_official": {"valid": true, "message": "ok", "swap_count": 2, "depth": 9, "score": 6.5}, "witness": {"placement": {"0": 2, "1": 1, "2": 3, "3": 6, "4": 5, "5": 7, "6": 4, "7": 9}, "routed": [["2Q", 2, 1], ["2Q", 2, 3], ["2Q", 2, 6], ["SWAP", 2, 6], ["2Q", 6, 5], ["2Q", 6, 7], ["SWAP", 5, 6], ["2Q", 5, 4], ["2Q", 5, 9]]}}

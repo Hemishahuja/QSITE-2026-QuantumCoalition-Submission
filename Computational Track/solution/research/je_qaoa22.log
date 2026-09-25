@@ -1,0 +1,2 @@
+using interval suffix bounds: [4, 4, 4, 3, 2, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+{"benchmark": "qaoa_random", "prefix": null, "eager": false, "T_start": 22, "elapsed": 2400.1, "nodes": 51175424, "proven_f_gt": 21, "proven_score_ge": 11.0}

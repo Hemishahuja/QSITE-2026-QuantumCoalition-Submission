@@ -1,0 +1,27 @@
+=== dense_random gates=40 qubits=14 tap_seconds=720.0 ===
+incumbent official score=35.5 swaps=24 depth=23 valid=True
+incumbent allocation distance_sum=48 sum_ceil_L/2=24 (actual swaps 24)
+re-TS of incumbent gaps: exact=39 approx=0 (0.0s)
+dense_random retswap_incumbent: valid=True swaps=24 depth=23 score=35.5 ok
+  new best for dense_random saved to best_dense_random.json
+BMT cap=None segments=[9, 10, 8, 9, 4] bridge_lb=61 (0.0s)
+BMT cap=8 segments=[8, 8, 8, 8, 8] bridge_lb=72 (0.0s)
+BMT cap=6 segments=[6, 6, 6, 6, 6, 6, 4] bridge_lb=111 (0.0s)
+BMT cap=5 segments=[5, 5, 5, 5, 5, 5, 5, 5] bridge_lb=112 (0.0s)
+BMT cap=4 segments=[4, 4, 4, 4, 4, 4, 4, 4, 4, 4] bridge_lb=143 (0.0s)
+BMT cap=3 segments=[3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1] bridge_lb=172 (0.0s)
+dense_random bmt_capmax: valid=True swaps=100 depth=45 score=122.5 ok
+dense_random bmt_cap8: valid=True swaps=131 depth=68 score=165.0 ok
+dense_random bmt_cap6: valid=True swaps=189 depth=97 score=237.5 ok
+dense_random bmt_cap5: valid=True swaps=149 depth=90 score=194.0 ok
+dense_random bmt_cap4: valid=True swaps=204 depth=98 score=253.0 ok
+dense_random bmt_cap3: valid=True swaps=232 depth=116 score=290.0 ok
+=== dense_random gates=40 qubits=14 tap_seconds=480.0 ===
+incumbent official score=35.5 swaps=24 depth=23 valid=True
+incumbent allocation distance_sum=48 sum_ceil_L/2=24 (actual swaps 24)
+re-TS of incumbent gaps: exact=39 approx=0 (0.0s)
+dense_random retswap_incumbent: valid=True swaps=24 depth=23 score=35.5 ok
+TAP status=FEASIBLE bound=0.0 obj=24.0 elapsed=480.2s
+TAP bound implies swaps >= 0
+dense_random tap: valid=True swaps=24 depth=23 score=35.5 ok
+appended 2 records to wagner_results.jsonl

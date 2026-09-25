@@ -1,0 +1,14 @@
+=== segment TAP dense_random seconds=90.0 ===
+cap=None segments=[9, 10, 8, 9, 4]
+segment TAP nseg=5 status=FEASIBLE bound=3.0 obj=32.0 elapsed=90.0s
+dense_random segment_capmax: valid=True swaps=47 depth=35 score=64.5 ok
+cap=8 segments=[8, 8, 8, 8, 8]
+segment TAP nseg=5 status=FEASIBLE bound=4.0 obj=29.0 elapsed=90.0s
+dense_random segment_cap8: valid=True swaps=54 depth=37 score=72.5 ok
+cap=6 segments=[6, 6, 6, 6, 6, 6, 4]
+segment TAP nseg=7 status=FEASIBLE bound=1.0 obj=40.0 elapsed=90.1s
+dense_random segment_cap6: valid=True swaps=83 depth=53 score=109.5 ok
+cap=5 segments=[5, 5, 5, 5, 5, 5, 5, 5]
+segment TAP nseg=8 status=FEASIBLE bound=0.0 obj=49.0 elapsed=90.1s
+dense_random segment_cap5: valid=True swaps=91 depth=51 score=116.5 ok
+segment run wrote 4 records

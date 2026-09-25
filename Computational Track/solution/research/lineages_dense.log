@@ -1,0 +1,7 @@
+1 new best {'valid': True, 'message': 'ok', 'swap_count': 30, 'depth': 29, 'score': 44.5}
+2 new best {'valid': True, 'message': 'ok', 'swap_count': 33, 'depth': 22, 'score': 44.0}
+3 new best {'valid': True, 'message': 'ok', 'swap_count': 27, 'depth': 24, 'score': 39.0}
+6 new best {'valid': True, 'message': 'ok', 'swap_count': 26, 'depth': 22, 'score': 37.0}
+117 new best {'valid': True, 'message': 'ok', 'swap_count': 24, 'depth': 24, 'score': 36.0}
+146 new best {'valid': True, 'message': 'ok', 'swap_count': 25, 'depth': 21, 'score': 35.5}
+lineages=650 best={'valid': True, 'message': 'ok', 'swap_count': 25, 'depth': 21, 'score': 35.5} median=42.5

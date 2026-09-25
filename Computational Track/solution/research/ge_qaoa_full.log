@@ -1,0 +1,5 @@
+interval suffix bounds: [4, 4, 4, 3, 2, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  B=4: infeasible (287.7s, nodes=10636909, memo=515020)
+  B=5: FEASIBLE (72.9s, nodes=13923164, memo=453847)
+qaoa_random prefix 18 result 5 witness nodes 13923164
+official on prefix: {'valid': True, 'message': 'ok', 'swap_count': 5, 'depth': 14, 'score': 12.0}

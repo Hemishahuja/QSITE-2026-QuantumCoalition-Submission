@@ -1,0 +1,2 @@
+  T=13 (score 6.5): FEASIBLE (108.6s, nodes=1108819, memo=555769)
+{"benchmark": "ladder_trotter", "prefix": null, "eager": false, "T_start": 13, "elapsed": 108.6, "nodes": 1108819, "optimal_f": 13, "optimal_score": 6.5, "witness_official": {"valid": true, "message": "ok", "swap_count": 3, "depth": 7, "score": 6.5}}

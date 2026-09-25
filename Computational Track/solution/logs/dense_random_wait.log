@@ -1,0 +1,7 @@
+2026-09-25T15:15:50.7888250-04:00 cwd=C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track waiting until qaoa_random PIDs 12520 and 22828 are both gone
+2026-09-25T15:17:51.9251841-04:00 qaoa_random processes exited
+2026-09-25T15:17:52.2377641-04:00 free_mb=2446
+2026-09-25T15:17:52.2397595-04:00 free memory below 2500 MB; dense_random not started
+2026-09-25T15:18:42.6572906-04:00 relaunch: free memory is 5071 MB; starting dense_random workers=2
+2026-09-25T15:19:27.5451783-04:00 first launch failed: No module named solution.cpsat_joint; relaunching from Computational Track
+2026-09-25T15:36:12.5884473-04:00 launching dense_random from cpsat_joint.pyc workers=2

@@ -1,0 +1,6 @@
+
+=== ghz_star T=9 complete=False ===
+Regression at the known optimal depth. Not a new proof.
+heartbeat incumbent obj=13 score=6.5 bound=7.0 t=5.0s
+status=FEASIBLE obj=13 model_score=6.5 bound=7.0 bound_score=3.5 wall=20.1s T=9 swaps=[None,None] workers=2 hinted=True accepted=True
+official valid=True score=6.5 swaps=2 depth=9

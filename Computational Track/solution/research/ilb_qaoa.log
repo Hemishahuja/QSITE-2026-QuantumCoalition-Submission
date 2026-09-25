@@ -1,0 +1,17 @@
+len=2: intervals=17 exact=17 improved=0 LB(whole)=0 t=1s
+len=3: intervals=16 exact=16 improved=0 LB(whole)=0 t=1s
+len=4: intervals=15 exact=15 improved=1 LB(whole)=1 t=1s
+len=5: intervals=14 exact=14 improved=0 LB(whole)=1 t=1s
+len=6: intervals=13 exact=13 improved=1 LB(whole)=1 t=1s
+len=7: intervals=12 exact=12 improved=1 LB(whole)=1 t=1s
+len=8: intervals=11 exact=11 improved=2 LB(whole)=2 t=2s
+len=9: intervals=10 exact=10 improved=2 LB(whole)=3 t=3s
+len=10: intervals=9 exact=9 improved=1 LB(whole)=3 t=4s
+len=11: intervals=8 exact=8 improved=2 LB(whole)=3 t=6s
+len=12: intervals=7 exact=7 improved=0 LB(whole)=3 t=9s
+len=13: intervals=6 exact=6 improved=1 LB(whole)=3 t=15s
+len=14: intervals=5 exact=5 improved=1 LB(whole)=4 t=26s
+len=15: intervals=4 exact=4 improved=0 LB(whole)=4 t=41s
+len=16: intervals=3 exact=3 improved=0 LB(whole)=4 t=95s
+len=17: intervals=2 exact=1 improved=0 LB(whole)=4 t=155s
+len=18: intervals=1 exact=0 improved=0 LB(whole)=4 t=215s

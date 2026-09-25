@@ -1,0 +1,38 @@
+dense_random: 12 windows, K=[14, 16], step=6, extra=0, enum 40.0s, top=6, wide=512
+resuming: 42 windows already in lns_free_dense_random.jsonl, 12 to go
+{"benchmark": "dense_random", "i": 0, "K": 14, "extra": 0, "w_orig": 4, "B": 4, "budget_levels_exhausted": 4, "enum_nodes": 330, "end_states": 2, "orig_end_found": true, "min_window_swaps": 4, "narrow_evaluated": 2, "base_score": 35.5, "best_score": 35.5, "best_pass": "narrow", "best_swaps_depth": [24, 23], "t_enum": 0.0, "elapsed": 0.8}
+{"benchmark": "dense_random", "i": 6, "K": 14, "extra": 0, "w_orig": 7, "B": 7, "budget_levels_exhausted": 7, "enum_nodes": 174623, "end_states": 6, "orig_end_found": true, "min_window_swaps": 7, "narrow_evaluated": 6, "base_score": 35.5, "best_score": 35.5, "best_pass": "wide", "best_swaps_depth": [24, 23], "t_enum": 4.4, "elapsed": 6.4}
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 269, in run_window
+    ends, complete, nodes = enumerate_window(gates[i:j], pos_i, ready_i, B, enum_s)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 178, in enumerate_window
+    rec(0, 0, None, Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 165, in rec
+    rec(k, s + 1, (u, v), Bl)
+  [Previous line repeated 5 more times]
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 146, in rec
+    memo[key] = s
+    ~~~~^^^^^
+MemoryError
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 354, in <module>
+    main()
+  File "C:\Users\hemis\Desktop\QSITE 2026 Winner\QSITE-2026-QuantumCoalition\Computational Track\solution\research\lns_free.py", line 342, in main
+    for row in pool.imap_unordered(run_window, tasks):
+  File "C:\Users\hemis\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+MemoryError

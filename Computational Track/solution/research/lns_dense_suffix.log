@@ -1,0 +1,23 @@
+baseline official: {'valid': True, 'message': 'ok', 'swap_count': 24, 'depth': 23, 'score': 35.5}
+{"w": 4, "i": 36, "j": 40, "orig_swaps": 2, "t": 0.0, "window_locally_optimal_for_swaps": true}
+{"w": 5, "i": 35, "j": 40, "orig_swaps": 3, "t": 0.0, "window_locally_optimal_for_swaps": true}
+{"w": 6, "i": 34, "j": 40, "orig_swaps": 3, "t": 0.0, "window_locally_optimal_for_swaps": true}
+{"w": 7, "i": 33, "j": 40, "orig_swaps": 3, "t": 0.0, "window_locally_optimal_for_swaps": true}
+{"w": 8, "i": 32, "j": 40, "orig_swaps": 5, "t": 0.0, "window_locally_optimal_for_swaps": true}
+{"w": 9, "i": 31, "j": 40, "orig_swaps": 6, "t": 0.0, "window_locally_optimal_for_swaps": true}
+{"w": 10, "i": 30, "j": 40, "orig_swaps": 8, "t": 1.6, "window_locally_optimal_for_swaps": true}
+{"w": 11, "i": 29, "j": 40, "orig_swaps": 9, "t": 8.6, "window_locally_optimal_for_swaps": true}
+{"w": 12, "i": 28, "j": 40, "orig_swaps": 10, "t": 90.0, "timeout_proven_min_gt": 8}
+{"w": 13, "i": 27, "j": 40, "orig_swaps": 11, "t": 90.0, "timeout_proven_min_gt": 9}
+{"w": 14, "i": 26, "j": 40, "orig_swaps": 11, "t": 90.0, "timeout_proven_min_gt": 9}
+{"w": 15, "i": 25, "j": 40, "orig_swaps": 11, "t": 90.0, "timeout_proven_min_gt": 9}
+{"w": 16, "i": 24, "j": 40, "orig_swaps": 11, "t": 90.0, "timeout_proven_min_gt": 9}
+{"w": 17, "i": 23, "j": 40, "orig_swaps": 13, "t": 90.1, "timeout_proven_min_gt": 9}
+{"w": 18, "i": 22, "j": 40, "orig_swaps": 15, "t": 90.0, "timeout_proven_min_gt": 9}
+{"w": 19, "i": 21, "j": 40, "orig_swaps": 17, "t": 90.0, "timeout_proven_min_gt": 9}
+{"w": 20, "i": 20, "j": 40, "orig_swaps": 17, "t": 90.0, "timeout_proven_min_gt": 9}
+{"w": 21, "i": 19, "j": 40, "orig_swaps": 18, "t": 90.0, "timeout_proven_min_gt": 10}
+{"w": 22, "i": 18, "j": 40, "orig_swaps": 18, "t": 90.0, "timeout_proven_min_gt": 10}
+{"w": 23, "i": 17, "j": 40, "orig_swaps": 19, "t": 90.0, "timeout_proven_min_gt": 10}
+{"w": 24, "i": 16, "j": 40, "orig_swaps": 20, "t": 90.0, "timeout_proven_min_gt": 10}
+windows=21 swap-reducible=0 proven-locally-optimal=8 timeouts=13 best={'valid': True, 'message': 'ok', 'swap_count': 24, 'depth': 23, 'score': 35.5}

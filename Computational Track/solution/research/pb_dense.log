@@ -1,0 +1,4 @@
+{"benchmark": "dense_random", "prefix": 10, "elapsed": 0.1, "nodes": 19053, "exact_min_swaps": 1, "witness_official": {"valid": true, "message": "ok", "swap_count": 1, "depth": 4, "score": 3.0}, "global_swap_lb_so_far": 1}
+{"benchmark": "dense_random", "prefix": 12, "elapsed": 1.5, "nodes": 132766, "exact_min_swaps": 2, "witness_official": {"valid": true, "message": "ok", "swap_count": 2, "depth": 5, "score": 4.5}, "global_swap_lb_so_far": 2}
+{"benchmark": "dense_random", "prefix": 14, "elapsed": 81.5, "nodes": 4220607, "exact_min_swaps": 3, "witness_official": {"valid": true, "message": "ok", "swap_count": 3, "depth": 6, "score": 6.0}, "global_swap_lb_so_far": 3}
+{"benchmark": "dense_random", "prefix": 16, "elapsed": 39.8, "nodes": 2153887, "exact_min_swaps": 3, "witness_official": {"valid": true, "message": "ok", "swap_count": 3, "depth": 6, "score": 6.0}, "global_swap_lb_so_far": 3}
