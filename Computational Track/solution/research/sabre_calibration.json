@@ -1,0 +1,263 @@
+{
+ "n_seeds": 200,
+ "barrier": {
+  "results": {
+   "ghz_star": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 2,
+     "depth": 9,
+     "score": 6.5,
+     "seed": 29
+    },
+    "min_swaps_seen": 2,
+    "median_swaps": 4,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "chain_trotter": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 0,
+     "depth": 9,
+     "score": 4.5,
+     "seed": 102
+    },
+    "min_swaps_seen": 0,
+    "median_swaps": 3,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "ladder_trotter": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 7,
+     "depth": 9,
+     "score": 11.5,
+     "seed": 198
+    },
+    "min_swaps_seen": 7,
+    "median_swaps": 13,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "qaoa_random": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 7,
+     "depth": 12,
+     "score": 13.0,
+     "seed": 97
+    },
+    "min_swaps_seen": 7,
+    "median_swaps": 13,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "dense_random": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 45,
+     "depth": 27,
+     "score": 58.5,
+     "seed": 58
+    },
+    "min_swaps_seen": 43,
+    "median_swaps": 53,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "vqe_layers": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 5,
+     "depth": 14,
+     "score": 12.0,
+     "seed": 29
+    },
+    "min_swaps_seen": 5,
+    "median_swaps": 25,
+    "valid_outputs": 200,
+    "linearizable": null
+   }
+  },
+  "total": 106.0
+ },
+ "layout_free_route_barrier": {
+  "results": {
+   "ghz_star": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 2,
+     "depth": 9,
+     "score": 6.5,
+     "seed": 29
+    },
+    "min_swaps_seen": 2,
+    "median_swaps": 4,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "chain_trotter": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 0,
+     "depth": 9,
+     "score": 4.5,
+     "seed": 0
+    },
+    "min_swaps_seen": 0,
+    "median_swaps": 2,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "ladder_trotter": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 4,
+     "depth": 7,
+     "score": 7.5,
+     "seed": 161
+    },
+    "min_swaps_seen": 4,
+    "median_swaps": 14,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "qaoa_random": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 7,
+     "depth": 14,
+     "score": 14.0,
+     "seed": 3
+    },
+    "min_swaps_seen": 7,
+    "median_swaps": 13,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "dense_random": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 45,
+     "depth": 34,
+     "score": 62.0,
+     "seed": 17
+    },
+    "min_swaps_seen": 45,
+    "median_swaps": 57,
+    "valid_outputs": 200,
+    "linearizable": null
+   },
+   "vqe_layers": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 0,
+     "depth": 6,
+     "score": 3.0,
+     "seed": 28
+    },
+    "min_swaps_seen": 0,
+    "median_swaps": 16,
+    "valid_outputs": 200,
+    "linearizable": null
+   }
+  },
+  "total": 97.5
+ },
+ "free_linearized": {
+  "results": {
+   "ghz_star": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 2,
+     "depth": 9,
+     "score": 6.5,
+     "seed": 29
+    },
+    "min_swaps_seen": 2,
+    "median_swaps": 4,
+    "valid_outputs": 200,
+    "linearizable": 200
+   },
+   "chain_trotter": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 0,
+     "depth": 9,
+     "score": 4.5,
+     "seed": 0
+    },
+    "min_swaps_seen": 0,
+    "median_swaps": 2,
+    "valid_outputs": 200,
+    "linearizable": 200
+   },
+   "ladder_trotter": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 4,
+     "depth": 7,
+     "score": 7.5,
+     "seed": 161
+    },
+    "min_swaps_seen": 4,
+    "median_swaps": 8,
+    "valid_outputs": 21,
+    "linearizable": 21
+   },
+   "qaoa_random": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 8,
+     "depth": 11,
+     "score": 13.5,
+     "seed": 191
+    },
+    "min_swaps_seen": 8,
+    "median_swaps": 8,
+    "valid_outputs": 7,
+    "linearizable": 7
+   },
+   "dense_random": {
+    "best": null,
+    "min_swaps_seen": null,
+    "median_swaps": null,
+    "valid_outputs": 0,
+    "linearizable": 0
+   },
+   "vqe_layers": {
+    "best": {
+     "valid": true,
+     "message": "ok",
+     "swap_count": 0,
+     "depth": 6,
+     "score": 3.0,
+     "seed": 28
+    },
+    "min_swaps_seen": 0,
+    "median_swaps": 5,
+    "valid_outputs": 42,
+    "linearizable": 42
+   }
+  },
+  "total": null
+ }
+}
