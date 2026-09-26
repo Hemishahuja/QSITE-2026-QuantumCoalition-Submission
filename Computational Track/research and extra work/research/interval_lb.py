@@ -9,7 +9,7 @@ We compute free-start exact optima (or proven lower bounds on timeout) for inter
 increasing length in parallel, strengthening each search with the DP bound from shorter
 intervals as a suffix heuristic, then take the best partition by DP.
 
-    python solution/research/interval_lb.py <benchmark> <per_interval_seconds> [max_len] [workers]
+    python "research and extra work/research/interval_lb.py" <benchmark> <per_interval_seconds> [max_len] [workers]
 """
 
 from __future__ import annotations

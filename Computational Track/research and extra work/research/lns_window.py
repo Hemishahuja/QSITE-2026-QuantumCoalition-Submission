@@ -7,7 +7,7 @@ model, any SWAP on any edge) for strictly fewer SWAPs than the original window u
 spliced candidate is re-scored with the official scorer; accepted only if the official score
 improves.
 
-    python solution/research/lns_window.py <benchmark> <min_w> <max_w> <per_window_s>
+    python "research and extra work/research/lns_window.py" <benchmark> <min_w> <max_w> <per_window_s>
 """
 
 from __future__ import annotations

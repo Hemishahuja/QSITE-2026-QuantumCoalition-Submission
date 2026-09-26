@@ -1,6 +1,6 @@
 """Structural statistics of the 6 benchmarks and the hardware graph.
 
-    python solution/research/bench_stats.py
+    python "research and extra work/research/bench_stats.py"
 """
 
 from __future__ import annotations

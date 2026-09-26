@@ -16,7 +16,7 @@ joint_exact.py, plus reductions that keep at least one optimal routing reachable
   * The memo key includes the last action, so a cached failure is only reused for an identical
     sub-search (no graph-history-interaction issue).
 
-    python solution/research/je_por.py <benchmark> <T> <seconds> [workers] [tag]
+    python "research and extra work/research/je_por.py" <benchmark> <T> <seconds> [workers] [tag]
 Runs one threshold T (feasible iff some routing has 2*swaps + depth <= T), splitting the root
 placements of gate 0 across worker processes. Every witness is re-scored by the official scorer.
 """

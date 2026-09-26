@@ -99,7 +99,10 @@ import time
 from pathlib import Path
 from typing import Any
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+_EXTRA = Path(__file__).resolve().parent
+_TRACK = _EXTRA.parent
+sys.path.insert(0, str(_EXTRA))
+sys.path.insert(0, str(_TRACK))
 
 try:
     from ortools.sat.python import cp_model
@@ -109,7 +112,7 @@ except ImportError:  # pragma: no cover - exercised explicitly in tests by hidin
     cp_model = None  # type: ignore[assignment]
     ORTOOLS_AVAILABLE = False
 
-from .solve import Hardware, Program, build_output, cancel_redundant_swaps, is_valid, score_routed
+from solution.solve import Hardware, Program, build_output, cancel_redundant_swaps, is_valid, score_routed
 
 # --------------------------------------------------------------------------------------
 # Model construction
@@ -745,7 +748,7 @@ def _run_benchmark_cli(names: list[str], phase1_s: float, phase2_s: float, k_val
     from starter_kit.hardware import build_hardware_graph
 
     graph = build_hardware_graph()
-    state_path = Path(__file__).resolve().parent / "autopilot_state.json"
+    state_path = Path(__file__).resolve().parent.parent / "solution" / "autopilot_state.json"
     warm_by_name: dict[str, tuple[dict, list[tuple]]] = {}
     if state_path.exists():
         state = json.loads(state_path.read_text())

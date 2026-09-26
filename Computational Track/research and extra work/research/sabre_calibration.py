@@ -6,7 +6,7 @@ SWAPs go between consecutive gates). Output is converted to the competition form
 scored ONLY with the official starter_kit scorer. Research only; qiskit is not a
 dependency of the submission.
 
-    python solution/research/sabre_calibration.py <n_seeds>
+    python "research and extra work/research/sabre_calibration.py" <n_seeds>
 """
 
 from __future__ import annotations

@@ -1,0 +1,19 @@
+{"benchmark": "dense_random", "method": "prefix16_tail", "width": 128, "slack": 1, "valid": true, "message": "ok", "swap_count": 27, "depth": 23, "score": 38.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "seed1", "width": 64, "slack": 1, "valid": true, "message": "ok", "swap_count": 28, "depth": 25, "score": 40.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "seed2", "width": 64, "slack": 1, "valid": true, "message": "ok", "swap_count": 28, "depth": 25, "score": 40.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "seed3", "width": 64, "slack": 1, "valid": true, "message": "ok", "swap_count": 28, "depth": 25, "score": 40.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "seed4", "width": 64, "slack": 1, "valid": true, "message": "ok", "swap_count": 28, "depth": 25, "score": 40.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "seed5", "width": 64, "slack": 1, "valid": true, "message": "ok", "swap_count": 28, "depth": 25, "score": 40.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "seed6", "width": 64, "slack": 1, "valid": true, "message": "ok", "swap_count": 28, "depth": 25, "score": 40.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "pinned23-w512", "width": 512, "slack": 1, "valid": true, "message": "ok", "swap_count": 27, "depth": 23, "score": 38.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "pinned23-w2048", "width": 2048, "slack": 1, "valid": true, "message": "ok", "swap_count": 27, "depth": 23, "score": 38.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-16-w1024-s1", "width": 1024, "slack": 1, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-24-w1024-s1", "width": 1024, "slack": 1, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-28-w1024-s1", "width": 1024, "slack": 1, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-32-w1024-s1", "width": 1024, "slack": 1, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-36-w1024-s1", "width": 1024, "slack": 1, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-16-w512-s2", "width": 512, "slack": 2, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-24-w512-s2", "width": 512, "slack": 2, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-28-w512-s2", "width": 512, "slack": 2, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-32-w512-s2", "width": 512, "slack": 2, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "prefix16_tail", "tag": "incumbent-36-w512-s2", "width": 512, "slack": 2, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}

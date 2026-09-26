@@ -1,7 +1,7 @@
 """E5: SabreLayout-style many random-layout lineages (forward -> backward -> forward) using the
 production beam router (via Solver internals; solve.py unchanged). Official scorer on every result.
 
-    python solution/research/many_lineages.py <benchmark> <seconds> <width>
+    python "research and extra work/research/many_lineages.py" <benchmark> <seconds> <width>
 """
 
 from __future__ import annotations

@@ -3,7 +3,7 @@
 min_swaps(prefix) is monotone in prefix length, so every prefix optimum (or proven prefix
 lower bound) is a valid lower bound on the SWAP count of the whole program.
 
-    python solution/research/prefix_bounds.py <benchmark> <start_len> <step> <per_prefix_seconds>
+    python "research and extra work/research/prefix_bounds.py" <benchmark> <start_len> <step> <per_prefix_seconds>
 """
 
 from __future__ import annotations

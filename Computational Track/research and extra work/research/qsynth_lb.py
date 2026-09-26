@@ -4,7 +4,7 @@ The DAG model allows executing independent gates out of program order, so its fe
 SUPERSET of ours (strict program order). Hence Q-Synth's proven-optimal SWAP count is a valid
 LOWER BOUND on our minimum SWAP count. Research only; not a submission dependency.
 
-    python solution/research/qsynth_lb.py <benchmark> <timeout_s>
+    python "research and extra work/research/qsynth_lb.py" <benchmark> <timeout_s>
 """
 
 from __future__ import annotations

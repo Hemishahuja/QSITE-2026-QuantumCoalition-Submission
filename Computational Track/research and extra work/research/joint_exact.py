@@ -14,7 +14,7 @@ swap_lb: as in general_exact (front distance, disjoint-pair potential, optional 
 depth_lb: logical ASAP chain over remaining gates from current per-token ready times, where the
 front gate additionally needs d-1 SWAPs on the a- or b-chain.
 
-    python solution/research/joint_exact.py <benchmark> <T_start> <T_max> <seconds> [eager] [prefix]
+    python "research and extra work/research/joint_exact.py" <benchmark> <T_start> <T_max> <seconds> [eager] [prefix]
 Returns: first feasible T (optimal f, with official-scorer-verified witness) or the largest
 T proven infeasible before timeout.
 """

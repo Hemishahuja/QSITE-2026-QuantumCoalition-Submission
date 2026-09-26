@@ -8,7 +8,7 @@ initial placement and routing search *independently*, then reports:
 - whether particular placement strategies consistently win, or it's mostly routing-search luck
 
 Run from the `Computational Track` directory:
-    python solution/_diagnose_dense_random.py
+    python "research and extra work/_diagnose_dense_random.py"
 """
 
 from __future__ import annotations

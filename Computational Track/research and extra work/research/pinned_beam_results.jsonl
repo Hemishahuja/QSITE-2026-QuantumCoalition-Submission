@@ -1,0 +1,4 @@
+{"benchmark": "dense_random", "method": "pinned_beam_prefix", "note": "largest model gap 5.0", "width": 240, "valid": true, "message": "ok", "swap_count": 7, "depth": 11, "score": 12.5, "model_cost": 12.5, "gates": 23}
+{"benchmark": "dense_random", "method": "pinned_beam_forced", "note": "completed past the cap", "width": 240, "valid": true, "message": "ok", "swap_count": 26, "depth": 23, "score": 37.5, "model_cost": 37.5, "gates": 40}
+{"benchmark": "dense_random", "method": "pinned_beam_prefix", "note": "largest model gap 5.0", "width": 240, "valid": true, "message": "ok", "swap_count": 7, "depth": 11, "score": 12.5, "model_cost": 12.5, "gates": 23}
+{"benchmark": "dense_random", "method": "pinned_beam_forced", "note": "completed past the cap", "width": 240, "valid": true, "message": "ok", "swap_count": 26, "depth": 23, "score": 37.5, "model_cost": 37.5, "gates": 40}

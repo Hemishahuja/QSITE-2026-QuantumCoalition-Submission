@@ -5,7 +5,7 @@ Random small programs on the real 20-qubit hardware. Any instance where the rest
 optimum is strictly larger refutes the "delay" completeness argument in solve.py and
 cpsat_solver.py.
 
-    python solution/research/move_model_gap.py <n_instances> <seed>
+    python "research and extra work/research/move_model_gap.py" <n_instances> <seed>
 """
 
 from __future__ import annotations

@@ -1,7 +1,7 @@
 """Architecture gap on the TRUE objective: production solve() vs joint exact optimum
 (general move model, exact ASAP depth) on small random programs on the real hardware.
 
-    python solution/research/arch_gap.py <n_instances> <seed> <solve_budget_s> <exact_s>
+    python "research and extra work/research/arch_gap.py" <n_instances> <seed> <solve_budget_s> <exact_s>
 """
 
 from __future__ import annotations

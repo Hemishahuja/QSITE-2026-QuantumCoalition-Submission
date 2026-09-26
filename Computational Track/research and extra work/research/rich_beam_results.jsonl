@@ -1,0 +1,6 @@
+{"benchmark": "qaoa_random", "method": "greedy", "valid": true, "message": "ok", "swap_count": 12, "depth": 12, "score": 18.0}
+{"benchmark": "qaoa_random", "method": "rich_beam", "cut": 0, "width": 128, "valid": true, "message": "ok", "swap_count": 6, "depth": 11, "score": 11.5}
+{"benchmark": "qaoa_random", "method": "rich_beam", "cut": 8, "width": 128, "valid": true, "message": "ok", "swap_count": 6, "depth": 11, "score": 11.5}
+{"benchmark": "dense_random", "method": "greedy", "valid": true, "message": "ok", "swap_count": 59, "depth": 35, "score": 76.5}
+{"benchmark": "dense_random", "method": "rich_beam", "cut": 32, "width": 160, "valid": true, "message": "ok", "swap_count": 24, "depth": 23, "score": 35.5}
+{"benchmark": "dense_random", "method": "greedy", "valid": true, "message": "ok", "swap_count": 59, "depth": 35, "score": 76.5}

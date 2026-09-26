@@ -9,7 +9,7 @@ Checks (exact searches are uncapped in SWAPs):
   * tightness: if the exact witness uses <= S SWAPs then brute_min(S) == f*;
   * every exact witness is valid under the official scorer with score f*/2.
 
-    python solution/research/xcheck_joint.py <instances> <seed>
+    python "research and extra work/research/xcheck_joint.py" <instances> <seed>
 """
 
 from __future__ import annotations

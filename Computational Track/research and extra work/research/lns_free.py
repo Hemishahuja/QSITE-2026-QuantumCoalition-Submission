@@ -14,7 +14,7 @@ For a window of K consecutive program gates [i, i+K) of the current best route:
      best `top` of them.
   4. Splice prefix + window + tail, score with the REAL starter_kit.scorer.score_summary.
 
-    python solution/research/lns_free.py <benchmark> <K list> <start step> <enum_s> <workers> [extra] [top] [wide]
+    python "research and extra work/research/lns_free.py" <benchmark> <K list> <start step> <enum_s> <workers> [extra] [top] [wide]
 """
 
 from __future__ import annotations

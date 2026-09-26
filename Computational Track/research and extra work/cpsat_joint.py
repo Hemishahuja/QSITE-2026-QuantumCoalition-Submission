@@ -47,7 +47,10 @@ import time
 from pathlib import Path
 from typing import Any
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+_EXTRA = Path(__file__).resolve().parent
+_TRACK = _EXTRA.parent
+sys.path.insert(0, str(_EXTRA))
+sys.path.insert(0, str(_TRACK))
 
 try:
     from ortools.sat.python import cp_model
@@ -57,7 +60,7 @@ except ImportError:  # pragma: no cover
     cp_model = None  # type: ignore[assignment]
     ORTOOLS_AVAILABLE = False
 
-from .solve import Hardware, Program
+from solution.solve import Hardware, Program
 
 # Improving ladder solutions are exactly this point (see module docstring).
 _LADDER_T = 6
@@ -452,6 +455,146 @@ class _Heartbeat(cp_model.CpSolverSolutionCallback if ORTOOLS_AVAILABLE else obj
             print(f"checkpoint callback failed: {exc}", flush=True)
 
 
+# Program-order search visits one state per ready-op choice. Assignments that
+# need it are a few dozen operations; this cap is only a backstop so a
+# pathological incumbent cannot stall the solver callback. Hitting it does
+# not prove the assignment unrealizable.
+_EMIT_NODE_LIMIT = 250_000
+
+
+class _EmitIncomplete(RuntimeError):
+    """Search stopped before proving that no program-order routing exists."""
+
+
+def _asap_wires(wires: tuple[int, ...], last: tuple[int, ...]) -> int:
+    return 1 + max(last[w] for w in wires)
+
+
+def _search_program_order(
+    labels: list[int],
+    pos0: tuple[int, ...],
+    gates: list[tuple[int, int]],
+    gate_layers: list[int],
+    need: list[tuple[int, int]],
+    swaps: list[tuple[int, int, int]],
+) -> list[tuple]:
+    """Interleave gates and SWAPs so each op's ASAP layer equals its model layer.
+
+    A gate may be emitted only when its logical qubits currently occupy the
+    model's pre-layer endpoints. Ready SWAPs may be delayed past a higher-layer
+    gate when they do not share that gate's wires; their own predecessor is
+    often a later program gate. The left-to-right emitter that refuses to pass
+    such a SWAP rejects realizable assignments (qaoa gate 9 vs SWAP 8-9 layer 9;
+    dense gate 6 vs SWAP 7-11 layer 3).
+    """
+    count_g = len(gates)
+    count_s = len(swaps)
+    full = (1 << count_s) - 1
+    path: list[tuple] = []
+    dead: set[tuple] = set()
+    nodes = 0
+    stuck: dict[str, Any] | None = None
+    stuck_gate = -1
+
+    def record_stuck(next_gate: int, mask: int, pos: tuple[int, ...], last: tuple[int, ...]) -> None:
+        nonlocal stuck, stuck_gate
+        if next_gate <= stuck_gate:
+            return
+        stuck_gate = next_gate
+        pending = [swaps[i] for i in range(count_s) if not (mask >> i & 1)]
+        gate_layer_now = None if next_gate >= count_g else gate_layers[next_gate]
+        gate_asap = None
+        physical = None
+        if next_gate < count_g:
+            na, nb = need[next_gate]
+            physical = [labels[na], labels[nb]]
+            gate_asap = _asap_wires((na, nb), last)
+        earliest = min((t for t, _u, _v in pending), default=None)
+        stuck = {
+            "gate": next_gate,
+            "model_layer": gate_layer_now,
+            "asap": gate_asap,
+            "physical": physical,
+            "last": {labels[i]: last[i] for i in range(len(last)) if last[i]},
+            "emitted": [list(op) for op in path],
+            "pending_swaps": [[t, labels[u], labels[v]] for t, u, v in pending],
+            "gate_layers": list(gate_layers),
+            "earliest_swap": earliest,
+            "nodes": nodes,
+        }
+
+    def rec(next_gate: int, mask: int, pos: tuple[int, ...], last: tuple[int, ...]) -> bool:
+        nonlocal nodes
+        nodes += 1
+        if nodes > _EMIT_NODE_LIMIT:
+            raise _EmitIncomplete(
+                f"emit search exceeded {_EMIT_NODE_LIMIT} nodes "
+                f"(gate={next_gate} pending={count_s - mask.bit_count()})"
+            )
+        key = (next_gate, mask, pos, last)
+        if key in dead:
+            return False
+        if next_gate == count_g and mask == full:
+            return True
+
+        candidates: list[tuple[int, int, int]] = []
+        if next_gate < count_g:
+            layer = gate_layers[next_gate]
+            a, b = gates[next_gate]
+            pa, pb = pos[a], pos[b]
+            if (pa, pb) == need[next_gate] and _asap_wires((pa, pb), last) == layer:
+                candidates.append((layer, 0, next_gate))
+        for i, (t, u, v) in enumerate(swaps):
+            if mask >> i & 1:
+                continue
+            if _asap_wires((u, v), last) == t:
+                candidates.append((t, 1, i))
+        candidates.sort()
+        if not candidates:
+            record_stuck(next_gate, mask, pos, last)
+            dead.add(key)
+            return False
+
+        for _layer, kind, idx in candidates:
+            if kind == 0:
+                a, b = gates[idx]
+                pa, pb = pos[a], pos[b]
+                updated = list(last)
+                updated[pa] = updated[pb] = gate_layers[idx]
+                path.append(("2Q", labels[pa], labels[pb]))
+                if rec(next_gate + 1, mask, pos, tuple(updated)):
+                    return True
+                path.pop()
+            else:
+                t, u, v = swaps[idx]
+                moved = list(pos)
+                for q, p in enumerate(pos):
+                    if p == u:
+                        moved[q] = v
+                    elif p == v:
+                        moved[q] = u
+                updated = list(last)
+                updated[u] = updated[v] = t
+                path.append(("SWAP", labels[u], labels[v]))
+                if rec(next_gate, mask | (1 << idx), tuple(moved), tuple(updated)):
+                    return True
+                path.pop()
+        dead.add(key)
+        return False
+
+    if not rec(0, 0, pos0, tuple(0 for _ in pos0)):
+        detail = stuck or {}
+        exc = RuntimeError(
+            "emit could not realize model layers in program order"
+            f" (gate={detail.get('gate')} layer={detail.get('model_layer')} asap={detail.get('asap')}"
+            f" earliest_swap={detail.get('earliest_swap')} pending={len(detail.get('pending_swaps') or [])}"
+            f" search_exhausted nodes={nodes})"
+        )
+        setattr(exc, "conflict", detail)
+        raise exc
+    return list(path)
+
+
 def _emit(solver: "cp_model.CpSolver", built: dict[str, Any], prog: Program, hw: Hardware) -> tuple[dict, list[tuple], int, int]:
     """Emit gates in program order. Insert a SWAP when doing so now gives it its model layer.
 
@@ -497,84 +640,26 @@ def _emit_by_layer(solver, built, prog, hw, placement, depth):
 def _emit_in_program_order(solver, built, prog, hw, placement, depth):
     """Replay model layers without reordering gates.
 
-    A SWAP is emitted only when its ASAP layer equals the model layer. Pending
-    SWAPs stay in layer order, so an earlier SWAP is emitted before a later one
-    and before any later gate. A gate is emitted before a SWAP of the same
-    layer, matching the pre-SWAP placement the model reads. Emitting a later
-    ready SWAP (or a later ready gate) first can touch a shared physical qubit
-    and push an earlier SWAP past the only layer the model allowed for it.
+    See `_search_program_order`. Bucket order already failed before this is called.
     """
     labels = hw.labels
-    gate_layer = [int(solver.Value(built["layers"][j])) for j in range(built["G"])]
-    pending: list[tuple[int, int, int]] = []
+    gate_layers = [int(solver.Value(built["layers"][j])) for j in range(built["G"])]
+    need: list[tuple[int, int]] = []
+    for j, (a, b) in enumerate(prog.gates):
+        t = gate_layers[j]
+        need.append(
+            (
+                int(solver.Value(built["pos"][t - 1][a])),
+                int(solver.Value(built["pos"][t - 1][b])),
+            )
+        )
+    swaps: list[tuple[int, int, int]] = []
     for t in range(1, depth + 1):
         for e, (u, v) in enumerate(built["edges"]):
             if solver.Value(built["swap"][t][e]):
-                pending.append((t, u, v))
-
-    def asap(wires: tuple[int, ...], last: dict[int, int]) -> int:
-        return 1 + max((last.get(w, 0) for w in wires), default=0)
-
-    last: dict[int, int] = {}
-    routed: list[tuple] = []
-    next_gate = 0
-    guard = 0
-    limit = (built["G"] + len(pending) + 2) ** 2
-    while next_gate < built["G"] or pending:
-        guard += 1
-        if guard > limit:
-            raise RuntimeError("emit could not realize model layers in program order")
-
-        gate_layer_now = None
-        gate_asap = None
-        pa = pb = None
-        gate_ready = False
-        if next_gate < built["G"]:
-            gate_layer_now = gate_layer[next_gate]
-            a, b = prog.gates[next_gate]
-            pa = int(solver.Value(built["pos"][gate_layer_now - 1][a]))
-            pb = int(solver.Value(built["pos"][gate_layer_now - 1][b]))
-            gate_asap = asap((labels[pa], labels[pb]), last)
-            gate_ready = gate_asap == gate_layer_now
-
-        min_swap_layer = pending[0][0] if pending else None
-        if gate_ready and (min_swap_layer is None or gate_layer_now <= min_swap_layer):
-            routed.append(("2Q", labels[pa], labels[pb]))
-            last[labels[pa]] = last[labels[pb]] = gate_layer_now
-            next_gate += 1
-            continue
-
-        placed = False
-        # A later SWAP must not jump ahead of the next gate. Its layer is only
-        # legal after that gate's wires have already reached the previous layer.
-        if min_swap_layer is not None and (gate_layer_now is None or min_swap_layer <= gate_layer_now):
-            for i, (t, u, v) in enumerate(pending):
-                if t != min_swap_layer:
-                    break
-                if asap((labels[u], labels[v]), last) == t:
-                    routed.append(("SWAP", labels[u], labels[v]))
-                    last[labels[u]] = last[labels[v]] = t
-                    pending.pop(i)
-                    placed = True
-                    break
-        if placed:
-            continue
-        exc = RuntimeError(
-            "emit could not realize model layers in program order"
-            f" (gate={next_gate} layer={gate_layer_now} asap={gate_asap}"
-            f" earliest_swap={min_swap_layer} pending={len(pending)})"
-        )
-        exc.conflict = {
-            "gate": next_gate,
-            "model_layer": gate_layer_now,
-            "asap": gate_asap,
-            "physical": None if pa is None else [labels[pa], labels[pb]],
-            "last": dict(last),
-            "emitted": [list(op) for op in routed],
-            "pending_swaps": [[t, labels[u], labels[v]] for t, u, v in pending],
-            "gate_layers": gate_layer,
-        }
-        raise exc
+                swaps.append((t, u, v))
+    pos0 = tuple(int(solver.Value(built["pos"][0][q])) for q in range(built["N"]))
+    routed = _search_program_order(labels, pos0, prog.gates, gate_layers, need, swaps)
     return placement, routed, len(routed) - built["G"], depth
 
 
@@ -736,6 +821,7 @@ def solve_joint(
     complete: bool = False,
     note: str = "",
     benchmark: str = "",
+    progress: bool = False,
 ) -> dict[str, Any]:
     """Minimize 2*swaps+depth. Never raises if ortools is missing."""
     if not ORTOOLS_AVAILABLE:
@@ -767,7 +853,7 @@ def solve_joint(
         solver = cp_model.CpSolver()
         solver.parameters.max_time_in_seconds = remaining
         solver.parameters.num_search_workers = workers
-        solver.parameters.log_search_progress = False
+        solver.parameters.log_search_progress = progress
         cb.best_obj = None
         cb.snapshots.clear()
         status = solver.Solve(built["model"], cb)
@@ -785,10 +871,20 @@ def solve_joint(
             views = [(int(round(solver.ObjectiveValue())), solver)]
         incumbent_obj = int(round(solver.ObjectiveValue()))
         chosen = None
+        # Status of the best snapshot only. A worse snapshot must not decide
+        # whether that best fire/swap pattern is cut out of the model.
+        best_status: str | None = None
         for obj, view in reversed(views):
             try:
                 placement, routed, swaps, depth = _emit(view, built, prog, hw)
+            except _EmitIncomplete as exc:
+                if best_status is None:
+                    best_status = "incomplete"
+                reject_reason = str(exc)
+                continue
             except RuntimeError as exc:
+                if best_status is None:
+                    best_status = "unrealizable"
                 reject_reason = str(exc)
                 continue
             official = _score(program, hardware_graph, placement, routed)
@@ -798,8 +894,12 @@ def solve_joint(
                 and official["depth"] == depth
                 and abs(official["score"] - obj / 2) < 1e-6
             ):
+                if best_status is None:
+                    best_status = "accepted"
                 chosen = (obj, placement, routed, official)
                 break
+            if best_status is None:
+                best_status = "mismatch"
             reject_reason = (
                 f"score mismatch model {swaps}+0.5*{depth} vs official "
                 f"{official['swap_count']}+0.5*{official['depth']}"
@@ -808,7 +908,10 @@ def solve_joint(
             accepted_pack = chosen
         if chosen is not None and chosen[0] == incumbent_obj:
             break
-        _forbid_fire_swap(built, solver)
+        if best_status == "unrealizable" or best_status == "mismatch":
+            _forbid_fire_swap(built, solver)
+            continue
+        break
     wall = time.perf_counter() - t0
     out: dict[str, Any] = {
         "available": True,
@@ -927,7 +1030,7 @@ def _toy_swap_vs_score() -> None:
     """Search a few tiny instances for score < min-swap score. Do not fake one."""
     import networkx as nx
 
-    from .cpsat_solver import find_min_swaps
+    from cpsat_solver import find_min_swaps
 
     candidates = [
         ([("2Q", 0, 1), ("2Q", 2, 3), ("2Q", 0, 2), ("2Q", 1, 3), ("2Q", 0, 3)], nx.path_graph(4)),
@@ -940,7 +1043,7 @@ def _toy_swap_vs_score() -> None:
         if not joint.get("accepted") or gap.get("best_swaps") is None:
             continue
         # Score the gap witness too.
-        from .cpsat_solver import _build_and_score
+        from cpsat_solver import _build_and_score
 
         prog, hw = Program(program), Hardware(graph)
         scored = _build_and_score(program, graph, prog, hw, gap["best_l2t"], gap["best_moves"])
@@ -981,7 +1084,7 @@ def _append_result(row: dict) -> None:
 
 
 def _load_warm() -> dict[str, tuple[dict, list[tuple]]]:
-    path = Path(__file__).resolve().parent / "autopilot_state.json"
+    path = Path(__file__).resolve().parent.parent / "solution" / "autopilot_state.json"
     if not path.exists():
         return {}
     state = json.loads(path.read_text())
@@ -1083,6 +1186,7 @@ def _run_benchmark(name: str, time_limit: float | None, workers: int) -> None:
         complete=preset["complete"],
         note=preset["note"],
         benchmark=name,
+        progress=bool(preset["complete"]),
     )
     result["benchmark"] = name
     result["record"] = "final"

@@ -6,7 +6,7 @@ The README (current) still says: stretch_A_bonus = N x 0.1 where N = gates saved
 decomposer. Whether it counts is unresolved (the formula was removed from the headline and the
 baseline file deleted in 57f9a53).
 
-    python solution/research/stretch_bonus.py
+    python "research and extra work/research/stretch_bonus.py"
 """
 
 from __future__ import annotations

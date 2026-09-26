@@ -2,7 +2,7 @@
 objective weight on depth is changed (research-only monkeypatch of State.cost; solve.py itself
 is not modified). Every point is validated with the official scorer.
 
-    python solution/research/frontier.py <benchmark>
+    python "research and extra work/research/frontier.py" <benchmark>
 """
 
 from __future__ import annotations

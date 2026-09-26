@@ -73,7 +73,7 @@ Keep ready, and do not put them up unless you are ahead or a judge asks: `routin
 Three lines that are easy to say wrong, because older drafts said them:
 
 - ladder_trotter **is** proven optimal at 6.5. An exhaustive search proved no valid routing scores below 6.5. The old line "SWAP count proven, depth open, half a point above 6.0" is retired.
-- qaoa_random's proven floor is **9.0**, not 6.0 and not 11.0. Best found is 11.5, so at most 2.5 points remain. A log field that looked like "proven ≥ 11.0" was a timeout artifact. `solution/research/FOLLOWUP_FINDINGS.md` says do not cite 11.0.
+- qaoa_random's proven floor is **9.0**, not 6.0 and not 11.0. Best found is 11.5, so at most 2.5 points remain. A log field that looked like "proven ≥ 11.0" was a timeout artifact. `research and extra work/research/FOLLOWUP_FINDINGS.md` says do not cite 11.0.
 - dense_random's proven floor is **17.0**, not 9.5 and not 16.0. We are at 35.5. The searches we have run plateau there. The true minimum, between 17 and 35.5, is still open.
 
 ---

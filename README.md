@@ -23,6 +23,8 @@ Welcome to the Quantum Coalition's QSITE 2026 hackathon challenge! There are two
 1. **`Computational Track/README.md`** - the full hacker handout. Read this first. Covers the compilation pipeline, hardware graph, scoring formula, and stretch goals in detail.
 2. **`Computational Track/starter.ipynb`** - animated walkthrough. Opens with the hardware graph, then routes a real program step-by-step, explains where the baseline fails, and ends with a submission template.
 3. **`Computational Track/starter_kit/`** - the minimum viable solution. All six modules are intentionally weak; your job is to beat them.
+4. **`Computational Track/solution/`** - the submission (`solve`, stretch decompose, writeup, demo).
+5. **`Computational Track/research and extra work/`** - search logs, CP-SAT experiments, and other material that is not part of `solve()`.
 
 ### Scientific Track
 

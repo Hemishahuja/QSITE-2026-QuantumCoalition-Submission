@@ -8,7 +8,7 @@ patched to log cleanly instead.
 A step s reported "Result: False" means: no DAG-semantics mapping with exactly s SWAPs exists.
 Forward search from 0 had already shown steps 0..10 UNSAT for dense_random (qs_dense.log).
 
-    python solution/research/qsynth_resume.py <benchmark> <start_step> <timeout_s> [verbose]
+    python "research and extra work/research/qsynth_resume.py" <benchmark> <start_step> <timeout_s> [verbose]
 """
 
 from __future__ import annotations

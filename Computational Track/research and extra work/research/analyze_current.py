@@ -1,6 +1,6 @@
 """Per-gate anatomy of the captured production solutions (current_solutions.json).
 
-    python solution/research/analyze_current.py
+    python "research and extra work/research/analyze_current.py"
 """
 
 from __future__ import annotations

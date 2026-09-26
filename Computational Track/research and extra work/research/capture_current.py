@@ -1,6 +1,6 @@
 """Run production solve() (20 s, seed 0) on every benchmark, save outputs + official scores.
 
-    python solution/research/capture_current.py
+    python "research and extra work/research/capture_current.py"
 """
 
 from __future__ import annotations

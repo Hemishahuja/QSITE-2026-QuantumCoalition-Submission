@@ -24,6 +24,7 @@ Returns proven results only: (min_swaps, witness) or (lower_bound_proven, None) 
 from __future__ import annotations
 
 import json
+import random
 import sys
 import time
 from pathlib import Path
@@ -49,7 +50,7 @@ def relabel(gates):
 
 
 def general_min_swaps(gates_in, max_budget=40, time_limit=60.0, start_budget=0, verbose=False,
-                      memo_cap=6_000_000, graph=None, suffix_lb=None):
+                      memo_cap=6_000_000, graph=None, suffix_lb=None, order_seed: int | None = None):
     """suffix_lb[j] (optional): proven lower bound on SWAPs strictly after gate j-1 executes
     under a FREE mapping at that point (e.g. from interval_lb.py). Added to the local bound."""
     gates, idx = relabel(gates_in)
@@ -65,12 +66,13 @@ def general_min_swaps(gates_in, max_budget=40, time_limit=60.0, start_budget=0, 
         dist = [[d[u].get(v, 10**6) for v in range(n)] for u in range(n)]
         edges = sorted(tuple(sorted(e)) for e in graph.edges)
     return _search(gates, idx, G, L, n, dist, edges, max_budget, time_limit, start_budget, verbose,
-                   memo_cap, suffix_lb)
+                   memo_cap, suffix_lb, order_seed)
 
 
 def _search(gates, idx, G, L, N, dist, edges, max_budget, time_limit, start_budget, verbose, memo_cap,
-            suffix_lb):
+            suffix_lb, order_seed=None):
     deadline = time.perf_counter() + time_limit
+    order_rng = random.Random(order_seed) if order_seed is not None else None
     pos = [-1] * L
     occ = [-1] * N
     memo: dict = {}
@@ -190,7 +192,10 @@ def _search(gates, idx, G, L, N, dist, edges, max_budget, time_limit, start_budg
             do_swap(u, v)
             if hv <= rem - 1:
                 cands.append((hv, e))
-        cands.sort()
+        if order_rng is None:
+            cands.sort()
+        else:
+            cands.sort(key=lambda item: (item[0], order_rng.random()))
         for _, (u, v) in cands:
             do_swap(u, v)
             trail.append(("swap", u, v))
