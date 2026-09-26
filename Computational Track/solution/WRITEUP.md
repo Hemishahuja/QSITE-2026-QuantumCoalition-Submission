@@ -2,7 +2,7 @@
 
 **Track:** Computational (quantum circuit compilation: placement, routing, scheduling)
 **Date:** 25 September 2026. Every public benchmark is valid under the unmodified `starter_kit.scorer`.
-**Core score 67.5** (76% below the provided baseline of 283.5). **67.5 − 41.0 = 26.5** including the stretch-goal bonus, which the organizers confirmed counts (see Stretch Goal A, below).
+**Core score 67.5** (76% below the provided baseline of 283.5). Stretch Goal A adds a bonus of **41.0**, and the organizers confirmed that bonus counts. **Reported total: 67.5 − 41.0 = 26.5.**
 
 ## Results
 
@@ -19,6 +19,18 @@ Score = swaps + 0.5 × depth, from `starter_kit.scorer.score_summary`, lower is 
 | dense_random | 122.0 | **35.5** | 24 | 23 | 17.0 | best found; distance to the floor is open |
 | vqe_layers | 58.0 | **3.0** | 0 | 6 | 3.0 | **yes, proven** |
 | **Total** | **283.5** | **67.5** | | | **46.5** | **4 of 6 proven** |
+
+**Stretch bonus.** The README scores an improved decomposer as `stretch_A_bonus = N × 0.1`, subtracted from the core total. N is native gates saved against the deleted padded baseline: 4 per SWAP (7 padded gates → 3 CNOTs) and 2 per program 2Q (3 padded gates → 1 CNOT). These six programs have no 1Q ops, so `N = 4 × 35 + 2 × 135 = 410` and the bonus is **41.0**. `python solution/verify_stretch.py` reproduces this count.
+
+| Benchmark | SWAPs | Program 2Q | N | Bonus | Core − bonus |
+|---|---|---|---|---|---|
+| ghz_star | 2 | 7 | 22 | 2.2 | 4.3 |
+| chain_trotter | 0 | 9 | 18 | 1.8 | 2.7 |
+| ladder_trotter | 3 | 16 | 44 | 4.4 | 2.1 |
+| qaoa_random | 6 | 18 | 60 | 6.0 | 5.5 |
+| dense_random | 24 | 40 | 176 | 17.6 | 17.9 |
+| vqe_layers | 0 | 45 | 90 | 9.0 | −6.0 |
+| **Total** | **35** | **135** | **410** | **41.0** | **26.5** |
 
 67.5 is 216 points under the starter baseline of 283.5. Four of six benchmarks are proven optimal. `ghz_star`, `chain_trotter`, and `vqe_layers` are arguments `solve()` can check. `ladder_trotter` is a separate exhaustive search.
 
@@ -51,7 +63,7 @@ Score = swaps + 0.5 × depth, from `starter_kit.scorer.score_summary`, lower is 
 
 `solution/decompose.py` rewrites a routed program into the native `{RZ, SX, CNOT}` set: SWAP → 3 CNOTs, program 2Q → 1 CNOT, 1Q → 1 `SX` placeholder. (The input `("1Q", q)` carries no angle, so it is not interpreted as identity and deleted; `SX` is one native gate either way, versus the padded baseline's three.) `solution/optimize_1q.py` then simplifies single-qubit runs — adjacent `RZ` merge, `RZ(0)`/`RZ(2πk)` drop, four consecutive `SX` cancel since `SX⁴ = I` (checked numerically: `SX² = X ≠ I`, so pairs of `SX` are correctly left alone). `solution/verify_stretch.py` checks both against the deleted reference (`starter_kit/baseline_decompose.py` at `57f9a53^`, which pads every op with `RZ(0)` identities) and requires the decomposed CNOT sequence to match the routed program's SWAP/2Q structure exactly, in order.
 
-The README still lists `decompose()` / `optimize_1q()` as optional and still states the `N × 0.1` bonus, even though an organizer commit removed that formula from the headline scoring section and deleted the reference decomposer it's scored against. We raised this with the organizers directly: **the bonus counts.** `starter_kit/scorer.py` still has no live hook for it, so N is our own count against the historical reference rather than an official-scorer number, but the bonus itself is no longer in question. On the current routed circuits, N = 410 gates saved (650 → 240), for a bonus of 41.0. That alone is larger than the entire remaining routing gap (qaoa + dense, at most 21.0 points combined).
+The README still lists `decompose()` / `optimize_1q()` as optional and still states the `N × 0.1` bonus. An organizer commit removed that formula from the headline scoring section and deleted the reference decomposer it is scored against. We raised this with the organizers directly: **the bonus counts.** `starter_kit/scorer.py` has no live hook for it, so the table above is our count against that historical reference (`verify_stretch.py`), not a field the official scorer returns. On the current routed circuits, N = 410 gates saved (650 → 240), for a bonus of 41.0. That bonus is larger than the entire remaining routing gap on qaoa and dense together (at most 21.0 points).
 
 ## How to run
 
