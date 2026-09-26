@@ -2,6 +2,8 @@
 
 Welcome to the Quantum Coalition's QSITE 2026 hackathon challenge! There are two tracks available. The first track will have you thinking like a quantum computer scientist by solving a routing problem relevant to NISQ hardware. The second track will get you thinking like a physicist by exploring how a quantum computer could be used to probe phases of matter.
 
+**Computational Track demo:** https://youtu.be/9DaRzdE2C5w
+
 ---
 
 ##  Introducing the tracks

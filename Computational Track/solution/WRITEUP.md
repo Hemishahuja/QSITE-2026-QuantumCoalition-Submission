@@ -4,6 +4,8 @@
 **Date:** 25 September 2026. Every public benchmark is valid under the unmodified `starter_kit.scorer`.
 **Core score 67.5** (76% below the provided baseline of 283.5). Stretch Goal A adds a bonus of **41.0**, and the organizers confirmed that bonus counts. **Reported total: 67.5 − 41.0 = 26.5.**
 
+**Demo:** https://youtu.be/9DaRzdE2C5w
+
 ## Results
 
 Score = swaps + 0.5 × depth, from `starter_kit.scorer.score_summary`, lower is better. **Proven** means our score equals a floor on that objective. **Best found** means a valid official-scorer result whose optimum is still open. An **empirical plateau** is evidence about our search, not about the instance minimum.
